@@ -4,6 +4,7 @@
 [ ] create views structure
 [ ] create run and deploy scripts
 
+
 ## Tasks
   1. забрати звідтиля всі згадки про пралки і холодильники,
   1. поміняти електронну адресу на whiplash@ukr.net
