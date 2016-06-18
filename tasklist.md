@@ -1,8 +1,8 @@
 # TODOs
 
 ## Architecture
-[ ] create views structure
-[ ] create run and deploy scripts
+1. create views structure
+1. create run and deploy scripts
 
 ## Tasks
   1. забрати звідтиля всі згадки про пралки і холодильники,
