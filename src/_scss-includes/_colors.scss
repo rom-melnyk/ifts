@@ -1,0 +1,35 @@
+@for $i from 0 through 5 {
+    $base-color: hsla(60 * $i, 70%, 40%, .9);
+
+    .brick.color-#{$i} {
+        .brick-int-wrapper {
+            background-color: $base-color;
+        }
+
+        a:hover .brick-int-wrapper {
+            background-color: change_color($base-color, $lightness: 30%, $alpha: 1);
+        }
+    }
+
+
+    .overlay-window.color-#{$i} {
+        .ovr-shader {
+            background-color: change_color($base-color, $lightness: 30%);
+        }
+
+        .ovr-container {
+            a {
+                color: $base-color;
+            }
+
+            .ovr-header {
+                border-bottom-color: change_color($base-color, $alpha: .4);
+
+                .ovr-title {
+                    color: $base-color;
+                }
+            }
+        }
+    }
+
+}
