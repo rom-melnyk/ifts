@@ -9,11 +9,12 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.css$/, loader: 'style!css' },
+            { test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
             { test: /\.es/, loader: 'babel-loader' }
         ]
     },
     devServer: {
         hot: true
-        // TODO add srcmap
-    }
+    },
+    devtool: 'source-map'
 };
