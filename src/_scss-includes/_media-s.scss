@@ -1,0 +1,52 @@
+@import "vars";
+
+@media #{$small-screen} {
+    /* ---------------------- grid ---------------------- */
+    .column-1 {
+        width: 50%;
+    }
+
+    .column-2,
+    .column-3,
+    .column-4 {
+        width: 100%;
+    }
+
+    .body-content > .header,
+    .body-content > .bricks-container,
+    .footer-int-wrapper {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+
+    .header .header-logo .header-slogan {
+        text-align: left;
+    }
+
+    .brick .brick-int-wrapper {
+        padding: 1em 2em;
+        line-height: 4em;
+    }
+
+    .icon-xl {
+        font-size: 45px;
+    }
+
+    .brick-descr {
+        max-width: 45%;
+        margin-left: 2em;
+    }
+
+    .ovr-back-text {
+        display: none;
+    }
+
+    .ovr-title {
+        margin-left: 1em;
+        width: 75%;
+    }
+
+    .err-404-img {
+        padding: 0;
+    }
+}

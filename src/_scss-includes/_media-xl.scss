@@ -1,0 +1,37 @@
+@import "vars";
+
+@media #{$x-large-screen} {
+    .body-content > .header,
+    .body-content > .bricks-container,
+    .footer-int-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+        width: 70%;
+    }
+
+    .body-content > .bricks-container {
+        margin-bottom: 15em;
+    }
+
+    .header .header-contact-us {
+        width: 25%;
+        margin-left: 25%;
+    }
+
+    .body-content > .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .footer-logo-about-us .footer-logo,
+    .footer-logo-about-us .footer-about-us {
+        margin-bottom: 0;
+    }
+
+    .footer-counters .counter:last-child {
+        margin-bottom: 0;
+    }
+}
