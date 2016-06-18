@@ -8,9 +8,8 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: 'style!css' },
-            { test: /\.scss$/, loaders: ['style', 'css', 'sass'] },
-            { test: /\.es/, loader: 'babel-loader' }
+            { test: /\.scss$/, loaders: ['style', 'css', 'sass?sourceMap'] },
+            { test: /\.es/, exclude: /node_modules/, loader: 'babel-loader' }
         ]
     },
     devServer: {
