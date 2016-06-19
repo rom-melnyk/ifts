@@ -1,0 +1,62 @@
+.brick-int-wrapper {
+    margin: 0 0.3em 0.3em 0;
+    padding: 2em 3em;
+    line-height: 8em;
+}
+
+.brick-link * {
+    text-decoration: none;
+}
+
+.brick-link i,
+.brick-descr {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.brick-link i {
+    margin: -5px 0; /* fixes the height */
+}
+
+.brick-descr {
+    max-width: 50%;
+    max-height: 60%;
+    margin-left: 3em;
+    font-size: 75%;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brick.column-1 .brick-int-wrapper {
+    text-align: center;
+}
+
+.brick.column-1 .brick-descr {
+    display: none;
+}
+
+/* ------ custom icons ------ */
+.icon-custom {
+    width: 1.2em;
+    height: 1.1em;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.icon-custom-ifts {
+    background-image: url("/gfx/icon-ifts.png");
+}
+
+.icon-custom-list {
+    background-image: url("/gfx/icon-list.png");
+}
+
+.icon-custom-aukro {
+    background-image: url("/gfx/icon-aukro.png");
+}
+
+.icon-custom-slando {
+    background-image: url("/gfx/icon-slando.png");
+}
+
