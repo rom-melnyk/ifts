@@ -1,20 +1,41 @@
 var path = require('path');
 
-module.exports = {
-    entry: './src/app.es',
+// parse arguments
+var argv = {};
+process.argv.slice(2).forEach(function (arg) {
+    arg = arg.replace(/^-?-?\/?/ ,'').toLowerCase().split('=');
+    argv[arg[0]] = arg[1] || true;
+});
+
+// main config
+var config = {
+    entry: {
+        app: ['./src/app.es']
+    },
     output: {
         path: path.resolve(__dirname, 'src'),
-        filename: 'bundle.js'
+        filename: 'script.js'
     },
     module: {
         loaders: [
-            { test: /\.scss$/, loaders: ['style', 'css', 'sass?sourceMap'] },
-            { test: /\.es/, exclude: /node_modules/, loader: 'babel-loader' },
-            { test: /\.woff(.*)?$/, loader: 'url?limit=60000' },
+            {test: /\.scss$/, loaders: ['style', 'css', 'sass?sourceMap']},
+            {test: /\.es/, exclude: /node_modules/, loader: 'babel-loader'},
+            {test: /\.woff(.*)?$/, loader: 'url?limit=60000'}
         ]
-    },
-    devServer: {
-        hot: true
-    },
-    devtool: 'source-map'
+    }
 };
+
+if (!argv['prod']) {
+    // development
+
+    config.devServer = {
+        contentBase: 'src/'
+    };
+
+    config.devtool = 'source-map';
+} else {
+    // production
+    console.log('PRODUCTION!');
+}
+
+module.exports = config;

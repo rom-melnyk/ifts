@@ -5,8 +5,8 @@
   "main": "src/app.es",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --progress --colors --content-base src/",
-    "prod": "node prod.js"
+    "start": "webpack-dev-server --progress --colors --inline --hot",
+    "prod": "webpack --progress --prod"
   },
   "keywords": [
     "ifts.if.ua",
