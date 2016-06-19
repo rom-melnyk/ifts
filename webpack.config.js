@@ -34,19 +34,19 @@ var config = {
 
 if (!argv['p']) {
     // development
-
     config.cache = true;
+    config.devtool = 'source-map';
     config.devServer = {
         contentBase: 'src/'
     };
 
-    config.devtool = 'source-map';
 } else {
     // production
     console.log('Preparing PRODUCTION build in "' + deployDir + '" folder\n');
 
     config.cache = false;
     config.devtool = 'cheap-source-map';
+
     config.plugins.push(
         new webpack.DefinePlugin({
             'process.env': {
