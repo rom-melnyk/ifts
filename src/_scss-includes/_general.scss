@@ -1,3 +1,5 @@
+@import "_font";
+
 /* --------------------------------------- resetting --------------------------------------- */
 * {
     margin: 0;
@@ -15,9 +17,10 @@ html {
 body {
     width: 100%;
     min-height: 100%;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: #fff;
+    background-color: #448;
 }
 
 p {

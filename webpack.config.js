@@ -9,7 +9,8 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.scss$/, loaders: ['style', 'css', 'sass?sourceMap'] },
-            { test: /\.es/, exclude: /node_modules/, loader: 'babel-loader' }
+            { test: /\.es/, exclude: /node_modules/, loader: 'babel-loader' },
+            { test: /\.woff(.*)?$/, loader: 'url?limit=60000' },
         ]
     },
     devServer: {
