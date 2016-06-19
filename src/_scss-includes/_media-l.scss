@@ -1,8 +1,8 @@
 @import "_vars";
 
 @media #{$large-screen} {
-    .body-content > .header,
-    .body-content > .bricks-container,
+    .application-container > .header,
+    .application-container > .bricks-container,
     .footer-int-wrapper {
         margin-left: 2em;
         margin-right: 2em;
