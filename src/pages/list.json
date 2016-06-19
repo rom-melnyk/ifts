@@ -1,0 +1,58 @@
+[
+  {
+    "title": "ІФТехСервіс",
+    "description": "ІФТехСервіс — про нас",
+    "icon": "icon-custom icon-custom-ifts",
+    "body-ref": "01-ifts"
+  },
+
+  {
+    "title": "Де і як нас знайти",
+    "description": "Де і як нас знайти",
+    "icon": "fa-map-marker",
+    "script": "map.js",
+    "body-ref": "02-map"
+  },
+
+  {
+    "title": "Фото",
+    "description": "Краще раз побачити",
+    "icon": "fa-photo",
+    "body-ref": "03-photo"
+  },
+
+  {
+    "title": "Ми у Facebook",
+    "description": "Група у Facebook — тут можна поговорити з нами",
+    "icon": "fa-facebook-square",
+    "link": "https://www.facebook.com/groups/453544624728446/"
+  },
+
+  {
+    "title": "Ми на List.if.ua",
+    "description": "List.if.ua — відгуки про нас",
+    "icon": "icon-custom icon-custom-list",
+    "link": "http://list.if.ua/54147/%D0%86%D0%A4%D0%A2%D0%B5%D1%85%D0%A1%D0%B5%D1%80%D0%B2%D1%96%D1%81-%D0%86%D0%B2%D0%B0%D0%BD%D0%BE-%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA"
+  },
+
+  {
+    "title": "Ми на Aukro",
+    "description": "Ми на Aukro",
+    "icon": "icon-custom icon-custom-aukro",
+    "link": "http://aukro.ua/listing/user/listing.php?us_id=14323956"
+  },
+
+  {
+    "title": "Ми на Slando/OLX",
+    "description": "Ми на Slando/OLX",
+    "icon": "icon-custom icon-custom-slando",
+    "link": "http://olx.ua/list/user/11VK1"
+  },
+
+  {
+    "title": "Наші партнери",
+    "description": "Наші партнери",
+    "icon": "fa-thumbs-up",
+    "body-ref": "09-partners"
+  }
+]

@@ -11,8 +11,8 @@ export default class Header extends Component {
                 </div>
                 <div className="column-2 header-contact-us">
                     <ul>
-                        <li><i className="fa fa-phone icon-s"></i><b>(097)</b> 133-22-11</li>
-                        <li><i className="fa fa-envelope-o icon-s"></i><a href="mailto:whiplash@ukr.net">whiplash@ukr.net</a></li>
+                        <li><i className="fa fa-phone icon-s" /><b>(097)</b> 133-22-11</li>
+                        <li><i className="fa fa-envelope-o icon-s" /><a href="mailto:whiplash@ukr.net">whiplash@ukr.net</a></li>
                     </ul>
                 </div>
             </div>
