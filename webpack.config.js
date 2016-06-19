@@ -5,6 +5,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var deployDir = require('./package.json').config.deployTo;
 
 deployDir = path.resolve(__dirname, deployDir);
+compileDir = path.resolve(__dirname, 'compiled');
 
 // parse arguments
 var argv = {};
@@ -19,8 +20,9 @@ var config = {
         app: ['./src/app.es']
     },
     output: {
-        path: path.resolve(__dirname, 'src'),
-        filename: 'script.js'
+        path: compileDir,
+        filename: 'script.js',
+        publicPath: '/'
     },
     module: {
         loaders: [
@@ -71,10 +73,10 @@ if (!argv['p']) {
             verbose: true
         }),
         new CopyWebpackPlugin([
-            { from: 'src/index.html',       to: deployDir },
-            { from: 'src/script.js',        to: deployDir },
-            { from: 'src/gfx',              to: path.resolve(deployDir, 'gfx') },
-            { from: 'src/res',              to: path.resolve(deployDir, 'res') }
+            { from: 'src/index.html',                               to: deployDir },
+            { from: path.resolve(compileDir, 'script.js'),          to: deployDir },
+            { from: 'src/gfx',                                      to: path.resolve(deployDir, 'gfx') },
+            { from: 'src/res',                                      to: path.resolve(deployDir, 'res') }
         ])
     );
 }
