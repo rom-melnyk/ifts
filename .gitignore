@@ -1,5 +1,5 @@
 .idea/
-src/script.js
+src/script.js*
 node_modules/
 
 npm-debug.log

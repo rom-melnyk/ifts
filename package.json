@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --progress --colors --inline --hot",
-    "prod": "webpack --progress --prod"
+    "prod": "webpack --progress -p"
   },
   "keywords": [
     "ifts.if.ua",
