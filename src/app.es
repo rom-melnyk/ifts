@@ -3,9 +3,10 @@ import './style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './views/main.es';
+import { updateBricksData } from './bricks.es';
 
 window.IFTS = {
-    brick: {},
+    brick: updateBricksData(),
     ui: {
         $overlay: {}, // is set dynamically after document is ready;
         backgrounds: [] // is set dynamically in backgrounds.js
