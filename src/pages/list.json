@@ -3,7 +3,7 @@
     "title": "ІФТехСервіс",
     "description": "ІФТехСервіс — про нас",
     "icon": "icon-custom icon-custom-ifts",
-    "body-ref": "01-ifts"
+    "body": "01-ifts"
   },
 
   {
@@ -11,14 +11,14 @@
     "description": "Де і як нас знайти",
     "icon": "fa-map-marker",
     "script": "map.js",
-    "body-ref": "02-map"
+    "body": "02-map"
   },
 
   {
     "title": "Фото",
     "description": "Краще раз побачити",
     "icon": "fa-photo",
-    "body-ref": "03-photo"
+    "body": "03-photo"
   },
 
   {
@@ -53,6 +53,6 @@
     "title": "Наші партнери",
     "description": "Наші партнери",
     "icon": "fa-thumbs-up",
-    "body-ref": "09-partners"
+    "body": "09-partners"
   }
 ]
