@@ -1,5 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var deployDir = require('./package.json').config.deployTo;
+
+deployDir = path.resolve(__dirname, deployDir);
 
 // parse arguments
 var argv = {};
@@ -7,8 +12,6 @@ process.argv.slice(2).forEach(function (arg) {
     arg = arg.replace(/^-?-?\/?/ ,'').toLowerCase().split('=');
     argv[arg[0]] = arg[1] || true;
 });
-
-console.log(argv);
 
 // main config
 var config = {
@@ -40,7 +43,7 @@ if (!argv['p']) {
     config.devtool = 'source-map';
 } else {
     // production
-    console.log('Preparing PRODUCTION build in the deploy/ folder');
+    console.log('Preparing PRODUCTION build in "' + deployDir + '" folder\n');
 
     config.cache = false;
     config.devtool = 'cheap-source-map';
@@ -63,7 +66,16 @@ if (!argv['p']) {
             },
             'screw-ie8': true, // not sere which is correct
             screw_ie8: true
-        })
+        }),
+        new CleanWebpackPlugin([deployDir], {
+            verbose: true
+        }),
+        new CopyWebpackPlugin([
+            { from: 'src/index.html',       to: deployDir },
+            { from: 'src/script.js',        to: deployDir },
+            { from: 'src/gfx',              to: path.resolve(deployDir, 'gfx') },
+            { from: 'src/res',              to: path.resolve(deployDir, 'res') }
+        ])
     );
 }
 

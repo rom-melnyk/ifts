@@ -1,5 +1,6 @@
 .idea/
 src/script.js*
 node_modules/
+deploy/*
 
 npm-debug.log
