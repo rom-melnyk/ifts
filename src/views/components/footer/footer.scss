@@ -1,7 +1,47 @@
+@import "../../../_scss-includes/_vars";
+
 .application-container > .footer {
     min-width: 240px;
     margin: 2em auto;
     padding: 2em 0;
     color: #fff;
     background-color: hsla(210, 5%, 5%, .8);
+
+    .footer-logo-about-us,
+    .footer-counters,
+    .footer-design {
+        font-size: 65%;
+    }
+
+    .footer-logo-about-us .footer-logo,
+    .footer-logo-about-us .footer-about-us,
+    .footer-counters .counter {
+        margin-bottom: 1em;
+        padding-right: 2em;
+    }
+
+    .footer-logo-about-us .footer-logo img {
+        width: 100%;
+    }
+
+    .footer-design {
+        opacity: .2;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+@media #{$large-screen} {
+    .application-container > .footer {
+        .footer-int-wrapper {
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+
+        .footer-logo-about-us .footer-about-us {
+            margin-bottom: 0;
+        }
+    }
 }

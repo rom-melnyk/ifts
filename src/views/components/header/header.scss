@@ -1,5 +1,43 @@
+@import "../../../_scss-includes/_vars";
+
 .application-container > .header {
     min-width: 240px;
     margin: 2em auto;
     color: #fff;
+
+    .header-logo {
+        position: relative;
+        margin-bottom: 2em;
+        /*padding-right: 2em;*/
+
+        img {
+            width: 100%;
+        }
+
+        .header-slogan {
+            text-align: center;
+            font-size: 125%;
+        }
+    }
+
+    .header-contact-us ul li {
+        list-style: none;
+        line-height: 2em;
+
+        i.fa {
+            width: 1.5em;
+        }
+    }
+}
+
+@media #{$large-screen} {
+    .application-container > .header {
+        margin-left: 2em;
+        margin-right: 2em;
+
+        .header-contact-us ul {
+            float: right;
+            margin-right: 1em;
+        }
+    }
 }

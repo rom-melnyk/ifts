@@ -1,9 +1,7 @@
 @import "_vars";
 
 @media #{$large-screen} {
-    .application-container > .header,
-    .application-container > .bricks-container,
-    .footer-int-wrapper {
+    .application-container > .bricks-container {
         margin-left: 2em;
         margin-right: 2em;
     }
@@ -19,15 +17,6 @@
 
     .brick.column-2 .brick-descr {
         display: none;
-    }
-
-    .header .header-contact-us ul {
-        float: right;
-        margin-right: 1em;
-    }
-
-    .footer-logo-about-us .footer-about-us {
-        margin-bottom: 0;
     }
 
     .ovr-back-text {
