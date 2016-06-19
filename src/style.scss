@@ -1,8 +1,10 @@
-@import "./_scss-includes/_font-awesome.min.css";
-@import "./_scss-includes/_general";
-@import "./_scss-includes/_colors";
+@import "_scss-includes/_font-awesome.min.css";
+@import "_scss-includes/_general";
+@import "_scss-includes/_colors";
 
 // TODO mode these rules to proper places
-@import "./_scss-includes/_media-s";
-@import "./_scss-includes/_media-l";
-@import "./_scss-includes/_media-xl";
+@import "_scss-includes/_media-s";
+@import "_scss-includes/_media-l";
+@import "_scss-includes/_media-xl";
+
+@import "_scss-includes/_content";

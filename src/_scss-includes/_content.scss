@@ -1,0 +1,114 @@
+/* ----------------------------------- CONTENT MODULE ----------------------------------- */
+.body-content {
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+
+    & > .header,
+    & > .bricks-container,
+    & > .footer {
+        color: #ffffff;
+        min-width: 240px;
+        /*max-width: 1400px;*/
+    }
+
+    & > .header {
+        margin: 2em auto;
+    }
+
+    & > .bricks-container {
+        margin: 0 auto 2em;
+    }
+
+    & > .footer {
+        padding: 2em 0;
+        background-color: hsla(210, 5%, 5%, .8);
+    }
+}
+
+
+.bricks-container .loading {
+    min-height: 10em;
+    padding-top: 50%;
+    text-align: center;
+
+    i {
+        margin-top: -40px;
+    }
+}
+
+
+
+/* -------------------------------- END of CONTENT MODULE ------------------------------- */
+
+/* ----------------------------------- HEADER MODULE ----------------------------------- */
+.header-logo {
+    position: relative;
+    margin-bottom: 2em;
+    /*padding-right: 2em;*/
+}
+
+.header {
+    .header-logo img {
+        width: 100%;
+    }
+
+    .header-logo .header-slogan {
+        text-align: center;
+        font-size: 125%;
+    }
+
+    .header-contact-us ul li {
+        list-style: none;
+        line-height: 2em;
+    }
+
+    .header-contact-us ul li i.fa {
+        width: 1.5em;
+    }
+}
+
+/* -------------------------------- END of HEADER MODULE ------------------------------- */
+
+/* ----------------------------------- FOOTER MODULE ----------------------------------- */
+.footer .footer-logo-about-us,
+.footer .footer-counters,
+.footer .footer-design {
+    font-size: 65%;
+}
+
+.footer-logo-about-us .footer-logo,
+.footer-logo-about-us .footer-about-us,
+.footer-counters .counter {
+    margin-bottom: 1em;
+    padding-right: 2em;
+}
+
+.footer-logo-about-us .footer-logo img {
+    width: 100%;
+}
+
+.footer .footer-design {
+    opacity: .2;
+}
+
+.footer .footer-design:hover {
+    opacity: 1;
+}
+
+/* -------------------------------- END of FOOTER MODULE ------------------------------- */
+
+/* ----------------------------------- SERVICE MODULE ---------------------------------- */
+.err-404 .err-404-img {
+    padding: 0 2em 2em 0;
+}
+
+.err-404 .err-404-img img {
+    width: 100%;
+}
+
+.err-404 h1 {
+    margin-top: 0;
+}
+
+/* -------------------------------- END of SERVICE MODULE ------------------------------ */
