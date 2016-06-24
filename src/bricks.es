@@ -8,11 +8,10 @@ const bodies = {};
 // HTML files: dynamic require
 bricks.forEach((brick) => {
     if (brick.body) {
-        let moduleName = `./pages/${brick.body}.html`;
         try {
-            bodies[brick.body] = require(moduleName);
+            bodies[brick.body] = require.context('./pages', false, /^\.\/.+\.html$/)(`./${brick.name}.html`);
         } catch (e) {
-            throw new Error(`Failed to import ${moduleName}. Make sure the file exists.`);
+            throw new Error(`Failed to import "pages/${brick.body}.html". Make sure the file exists.`);
         }
     }
 });

@@ -28,7 +28,8 @@ var config = {
         loaders: [
             { test: /\.scss$/, loaders: ['style', 'css', 'sass?sourceMap'] },
             { test: /\.es(6)?$/, exclude: /node_modules/, loader: 'babel-loader' },
-            { test: /\.woff(.*)?$/, loader: 'url?limit=60000' },
+            { test: /\.woff(.*)?$/, loader: 'url?limit=65536' },
+            { test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=8192' },
             { test: /\.json(5)?$/, loader: 'json5' },
             { test: /\.html$/, loader: 'html' }
         ]
