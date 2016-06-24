@@ -2,18 +2,20 @@ import { random } from './utils/utils.es';
 import Constants from './constants.es';
 
 import bricks from './pages/list.json';
-// HTML files
-import body_01_ifts from './pages/01-ifts.html';
-import body_02_map from './pages/02-map.html';
-import body_03_photo from './pages/03-photo.html';
-import body_09_partners from './pages/09-partners.html';
 
-const bodies = {
-    '01-ifts': body_01_ifts,
-    '02-map': body_02_map,
-    '03-photo': body_03_photo,
-    '09-partners': body_09_partners
-};
+const bodies = {};
+
+// HTML files: dynamic require
+bricks.forEach((brick) => {
+    if (brick.body) {
+        let moduleName = `./pages/${brick.body}.html`;
+        try {
+            bodies[brick.body] = require(moduleName);
+        } catch (e) {
+            throw new Error(`Failed to import ${moduleName}. Make sure the file exists.`);
+        }
+    }
+});
 
 export function updateBricksData() {
     // 2 for small screens; 4 for wide screens

@@ -15,4 +15,4 @@ The regular html file containing the HTML fragment to be placed in the overlay
 ---
 
 # Including files
-Don't forget to import `*.html` files in `src/bricks.es` and attach 'em to the `bricks` object.
+Files should be imported dynamically during compilation. Check the error messages and of course review the application behavior :)

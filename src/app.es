@@ -6,7 +6,7 @@ import Main from './views/main.es';
 import { updateBricksData } from './bricks.es';
 
 window.IFTS = {
-    brick: updateBricksData(),
+    bricks: updateBricksData(),
     ui: {
         $overlay: {}, // is set dynamically after document is ready;
         backgrounds: [] // is set dynamically in backgrounds.js

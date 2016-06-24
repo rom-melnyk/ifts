@@ -11,7 +11,7 @@ export default class Brick extends Component {
                         <i className={`fa icon-xl ${icon}`} /><span className="brick-descr">{title}</span>
                     </div>
                 </a>
-                <div className="brick-content" style="display: none;">{body}</div>
+                <div className="brick-content" style={{display: 'none'}}>{body}</div>
             </div>
         );
     }
