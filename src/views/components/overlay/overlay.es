@@ -1,7 +1,27 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { closeOverlay } from '../actions.es'
 
 export default class Overlay extends Component {
+    componentDidMount() {
+        const node = ReactDOM.findDOMNode(this);
+        console.log(node);
+    }
+
     render() {
-        return null;
+        const { title, body } = this.props;
+
+        return (
+            <div className="overlay-window hidden">
+                <div className="ovr-shader transition-opa-5"></div>
+                <div className="ovr-container transition-opa-5">
+                    <div className="ovr-header">
+                        <a className="ovr-back" href="javascript://"><i className="fa fa-angle-left icon-l" /><span className="ovr-back-text">на головну</span></a>
+                        <span className="ovr-title">{title}</span>
+                    </div>
+                    <div className="ovr-content" dangerouslySetInnerHTML={{__html: body}}></div>
+                </div>
+            </div>
+        );
     }
 }

@@ -9,14 +9,14 @@ const bodies = {};
 bricks.forEach((brick) => {
     if (brick.body) {
         try {
-            bodies[brick.body] = require.context('./pages', false, /^\.\/.+\.html$/)(`./${brick.name}.html`);
+            bodies[brick.body] = require.context('./pages', false, /^\.\/.+\.html$/)(`./${brick.body}.html`);
         } catch (e) {
             throw new Error(`Failed to import "pages/${brick.body}.html". Make sure the file exists.`);
         }
     }
 });
 
-export function updateBricksData() {
+export function getBricksData() {
     // 2 for small screens; 4 for wide screens
     const maxWidthInRow = (window.innerWidth || document.clientWidth || document.body.clientWidth) > Constants.MIN_WIDTH_FOR_4_COLUMNS ? 4 : 2;
     let totalWidthInRow = 0;
@@ -42,7 +42,7 @@ export function updateBricksData() {
         totalWidthInRow += width;
 
         // ------ setting additional brick attribs ------
-        newBrick.id = idx;
+        newBrick.id = newBrick.body || (idx + ''); // human-friendly link if possible
 
         newBrick.classNames = [
             `column-${width}`,
@@ -60,11 +60,3 @@ export function updateBricksData() {
         return newBrick;
     });
 }
-
-// ------ location handling ------
-// var locHash = window.location.hash.substr(1);
-// if (locHash) {
-//     $('#' + locHash).find('.brick-link').trigger('click', [{}]);
-// }
-
-// window.addEventListener("hashchange", funcRef, false);

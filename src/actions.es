@@ -1,3 +1,33 @@
+import { getValue, updateState } from './state.es';
+
+export function openOverlay(id) {
+    const bricks = getValue('bricks') || [];
+    const brick = bricks.find(brk => brk.id === id);
+    if (brick) {
+        updateState('overlay', {
+            body: brick.body,
+            title: brick.description,
+            animate: true
+        });
+    }
+
+    // window.setTimeout(() => {
+    //     IFTS.overlay.animate = false;
+    //     triggerUpdate();
+    // }, 250);
+}
+
+
+export function stopAnimateOverlay() {
+    updateState('overlay.animate', true);
+}
+
+
+export function closeOverlay() {
+    updateState('overlay.animate', true);
+}
+
+
 export function easterEgg() {
     (function () {
         // ------------ config area ------------
@@ -23,7 +53,7 @@ export function easterEgg() {
                 window.location = urls[buffer];
             } else {
                 buffer = '';
-            };
+            }
         }
 
         function onKeypress (event) {

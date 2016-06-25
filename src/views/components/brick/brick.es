@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Brick extends Component {
     render() {
-        const { id, script, icon, link, description, title, body, classNames } = this.props;
+        const { id, script, icon, link, description, title, /*body, */classNames } = this.props;
         classNames.unshift('brick');
         return (
             <div className={classNames.join(' ')} id={id} /*dataAcript={script}*/>
@@ -11,7 +11,6 @@ export default class Brick extends Component {
                         <i className={`fa icon-xl ${icon}`} /><span className="brick-descr">{title}</span>
                     </div>
                 </a>
-                <div className="brick-content" style={{display: 'none'}}>{body}</div>
             </div>
         );
     }
