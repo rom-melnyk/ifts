@@ -62,7 +62,7 @@ export function updateState(path, value) {
         }
 
         // prepare the path if not crawlable
-        if (typeof branch[key] !== 'object' || typeof branch[key] !== 'function') {
+        if (typeof branch[key] !== 'object' && typeof branch[key] !== 'function') {
             if (keys[idx + 1].constructor === Number) {
                 branch[key] = [];
             } else {
