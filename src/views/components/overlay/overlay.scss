@@ -1,0 +1,100 @@
+.overlay-window {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.ovr-shader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*background-color: hsla(180, 0%, 30%, .9);*/
+}
+
+.transition-trigger .ovr-shader {
+    /*background: url(/gfx/loading.gif) no-repeat center center hsla(180, 0%, 30%, .1);
+    box-shadow: inset 0 0 10em 5em hsla(180, 0%, 30%, .2);*/
+    opacity: 0;
+}
+
+.ovr-container {
+    position: absolute;
+    top: 2em;
+    bottom: 2em;
+    left: 2em;
+    right: 2em;
+    background-color: #fff;
+    box-shadow: 0 0 25px 2px hsla(180, 0%, 0%, .3);
+}
+
+.transition-trigger .ovr-container {
+    opacity: 0;
+}
+
+.ovr-header {
+    padding: 2em 2em 1.2em;
+    border-bottom: 10px solid hsla(150, 30%, 70%, .8);
+}
+
+.ovr-content {
+    position: absolute;
+    top: 7em;
+    bottom: 2em;
+    left: 2em;
+    right: 2em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: hsla(210, 5%, 5%, .8);
+}
+
+.ovr-content p,
+.ovr-content ul {
+    margin: 0 0 1em 0;
+}
+
+.ovr-content ul {
+    padding-left: 3em;
+}
+
+.ovr-back-text,
+.ovr-title {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ovr-back-text {
+    font-size: 85%;
+    margin-left: .5em;
+}
+
+.ovr-title {
+    margin-left: 3em;
+    font-size: 140%;
+    line-height: 1em;
+}
+
+/* ------ custom classes ------ */
+.ovr-content .map-canvas,
+.ovr-content .photo img {
+    max-width: 95%;
+    width: 40em;
+    height: 20em;
+}
+
+.ovr-content .map-canvas {
+    background: url('/gfx/map.png') no-repeat center center;
+}
+
+.ovr-content .photo img {
+    height: auto;
+}
+
+.ovr-content .partners img {
+    height: 1em;
+    padding-right: .3em;
+    vertical-align: middle;
+}

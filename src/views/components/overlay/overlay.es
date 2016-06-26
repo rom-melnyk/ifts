@@ -1,3 +1,5 @@
+import './overlay.scss';
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { closeOverlay } from '../../../actions.es'
