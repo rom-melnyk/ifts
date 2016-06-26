@@ -1,6 +1,8 @@
 @import "_font";
+@import "_vars";
 
-/* --------------------------------------- resetting --------------------------------------- */
+
+// --------------------------- resetting ---------------------------
 * {
     margin: 0;
     padding: 0;
@@ -45,7 +47,7 @@ h3 {
     font-size: 125%;
 }
 
-/* --------------------------------------- links --------------------------------------- */
+// --------------------------- links ---------------------------
 a,
 a:hover,
 a:visited,
@@ -65,22 +67,7 @@ a {
 }
 
 
-/* --------------------------------------- icons --------------------------------------- */
-i {
-    // TODO move to overlay
-    .icon-l {
-        font-size: 35px;
-        vertical-align: middle;
-    }
-
-    // TODO move to header
-    .icon-s {
-        font-size: 25px;
-        vertical-align: middle;
-    }
-}
-
-/* --------------------------------------- grid --------------------------------------- */
+// --------------------------- grid ---------------------------
 .row {
     display: block;
     width: auto;
@@ -115,6 +102,22 @@ i {
     width: 100%;
 }
 
+
+// --- grid @media override ---
+@media #{$small-screen} {
+    .column-1 {
+        width: 50%;
+    }
+
+    .column-2,
+    .column-3,
+    .column-4 {
+        width: 100%;
+    }
+}
+// ----------------------------
+
+
 .fl {
     float: left;
 }
@@ -131,14 +134,8 @@ i {
     height: 0;
 }
 
-/* --------------------------------------- service stuff --------------------------------------- */
-.hidden {
-    display: none;
-}
 
-/* --------------------------------------- transition --------------------------------------- */
-$transition-duration: .325s;
-
+// --------------------------- transition ---------------------------
 .transition-opa {
     -webkit-transition: opacity $transition-duration;
     -moz-transition: opacity $transition-duration;

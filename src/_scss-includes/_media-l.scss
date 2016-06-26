@@ -1,15 +1,6 @@
 @import "_vars";
 
 @media #{$large-screen} {
-    .ovr-back-text {
-        display: none;
-    }
-
-    .ovr-title {
-        margin-left: 1em;
-        width: 80%;
-    }
-
     .err-404 .err-404-img {
         width: 50%;
     }
@@ -17,5 +8,4 @@
     .err-404 .err-404-text {
         width: 50%;
     }
-
 }

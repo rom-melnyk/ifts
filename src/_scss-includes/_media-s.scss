@@ -1,37 +1,6 @@
 @import "_vars";
 
 @media #{$small-screen} {
-    /* ---------------------- grid ---------------------- */
-    .column-1 {
-        width: 50%;
-    }
-
-    .column-2,
-    .column-3,
-    .column-4 {
-        width: 100%;
-    }
-
-    .application-container > .header,
-    .application-container > .bricks-container,
-    .footer-int-wrapper {
-        margin-left: 2em;
-        margin-right: 2em;
-    }
-
-    .header .header-logo .header-slogan {
-        text-align: left;
-    }
-
-    .ovr-back-text {
-        display: none;
-    }
-
-    .ovr-title {
-        margin-left: 1em;
-        width: 75%;
-    }
-
     .err-404-img {
         padding: 0;
     }

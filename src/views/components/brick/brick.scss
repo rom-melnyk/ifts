@@ -1,5 +1,9 @@
 @import '../../../_scss-includes/_vars';
 
+
+.application-container > .bricks-container {} // for the consistency
+
+
 .brick a {
     position: relative;
     display: block;
@@ -73,6 +77,11 @@
 }
 
 @media #{$small-screen} {
+    .application-container > .bricks-container {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+
     .brick a {
         i {
             font-size: 45px;

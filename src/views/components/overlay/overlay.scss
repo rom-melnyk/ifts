@@ -1,3 +1,6 @@
+@import '../../../_scss-includes/_vars';
+
+
 .overlay-window {
     position: fixed;
     top: 0;
@@ -66,6 +69,11 @@
     vertical-align: middle;
 }
 
+.ovr-back i {
+    font-size: 35px;
+    vertical-align: middle;
+}
+
 .ovr-back-text {
     font-size: 85%;
     margin-left: .5em;
@@ -77,24 +85,51 @@
     line-height: 1em;
 }
 
-/* ------ custom classes ------ */
-.ovr-content .map-canvas,
-.ovr-content .photo img {
-    max-width: 95%;
-    width: 40em;
-    height: 20em;
+
+// ---------------- custom classes ----------------
+.ovr-content {
+    .map-canvas,
+    .photo img {
+        max-width: 95%;
+        width: 40em;
+        height: 20em;
+    }
+
+    .map-canvas {
+        background: url('/gfx/map.png') no-repeat center center;
+    }
+
+    .photo img {
+        height: auto;
+    }
+
+    .partners img {
+        height: 1em;
+        padding-right: .3em;
+        vertical-align: middle;
+    }
 }
 
-.ovr-content .map-canvas {
-    background: url('/gfx/map.png') no-repeat center center;
+
+// ---------------- @media overrides ----------------
+@media #{$large-screen} {
+    .ovr-back-text {
+        display: none;
+    }
+
+    .ovr-title {
+        margin-left: 1em;
+        width: 80%;
+    }
 }
 
-.ovr-content .photo img {
-    height: auto;
-}
+@media #{$small-screen} {
+    .ovr-back-text {
+        display: none;
+    }
 
-.ovr-content .partners img {
-    height: 1em;
-    padding-right: .3em;
-    vertical-align: middle;
+    .ovr-title {
+        margin-left: 1em;
+        width: 75%;
+    }
 }
