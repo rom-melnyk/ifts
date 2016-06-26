@@ -1,4 +1,5 @@
 export default {
-    MAX_COLORS: 6,
-    MIN_WIDTH_FOR_4_COLUMNS: 480
+    MAX_COLORS: 5,
+    MIN_WIDTH_FOR_4_COLUMNS: 480,
+    ANIMATION_DURATION: 350
 };

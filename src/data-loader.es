@@ -29,25 +29,20 @@ export function getBricksData() {
         }
 
         // ------ calculating brick width ------
-        let width;
-
         if (totalWidthInRow >= maxWidthInRow) {
             totalWidthInRow = 0;
         }
-        if (idx === bricks.length - 1) {
-            width = maxWidthInRow - totalWidthInRow;
-        } else {
-            width = random(1, maxWidthInRow - totalWidthInRow);
-        }
-        totalWidthInRow += width;
+
+        newBrick.width = idx === bricks.length - 1
+            ? maxWidthInRow - totalWidthInRow
+            : random(1, maxWidthInRow - totalWidthInRow);
+
+        totalWidthInRow += newBrick.width;
 
         // ------ setting additional brick attribs ------
         newBrick.id = newBrick.body || (idx + ''); // human-friendly link if possible
 
-        newBrick.classNames = [
-            `column-${width}`,
-            `color-${random(1, Constants.MAX_COLORS)}`
-        ];
+        newBrick.color = random(1, Constants.MAX_COLORS);
 
         if (!newBrick.link) {
             newBrick.link = `#${newBrick.id}`;

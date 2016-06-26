@@ -1,4 +1,5 @@
 import { getValue, updateState } from './state.es';
+import Constants from './constants.es';
 
 export function openOverlay(id) {
     const bricks = getValue('bricks') || [];
@@ -7,24 +8,25 @@ export function openOverlay(id) {
         updateState('overlay', {
             body: brick.body,
             title: brick.description,
+            color: brick.color,
             animate: true
         });
+
+        window.setTimeout(() => {
+            updateState('overlay.animate', false);
+        }, Constants.ANIMATION_DURATION);
+    } else {
+        updateState('overlay', null);
     }
-
-    // window.setTimeout(() => {
-    //     IFTS.overlay.animate = false;
-    //     triggerUpdate();
-    // }, 250);
-}
-
-
-export function stopAnimateOverlay() {
-    updateState('overlay.animate', true);
 }
 
 
 export function closeOverlay() {
     updateState('overlay.animate', true);
+
+    window.setTimeout(() => {
+        window.location.hash = '';
+    }, Constants.ANIMATION_DURATION)
 }
 
 
