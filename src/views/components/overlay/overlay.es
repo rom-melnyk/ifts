@@ -23,10 +23,9 @@ export default class Overlay extends Component {
                 <div className="ovr-container transition-opa">
                     <div className="ovr-header">
                         <a className="ovr-back" href="javascript://" ref={BACK_BUTTON}>
-                            <i className="fa fa-angle-left icon-l" />
-                            <span className="ovr-back-text">на головну</span>
+                            <i className="fa fa-angle-left" />
+                            <span className="ovr-title">{title}</span>
                         </a>
-                        <span className="ovr-title">{title}</span>
                     </div>
                     <div className="ovr-content" dangerouslySetInnerHTML={{__html: body}}></div>
                 </div>

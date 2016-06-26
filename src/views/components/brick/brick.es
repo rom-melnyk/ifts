@@ -8,7 +8,7 @@ export default class Brick extends Component {
         const className = `brick column-${width} color-${color}`;
 
         return (
-            <div className={className} id={id}>
+            <div className={className}>
                 <a className="transition-background" href={link || `#${id}`} title={description}>
                     <div className="shader transition-opa"></div>
                     <i className={`fa ${icon} transition-transform`} />

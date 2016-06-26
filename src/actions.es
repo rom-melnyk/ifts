@@ -18,6 +18,8 @@ export function openOverlay(id) {
     } else {
         updateState('overlay', null);
     }
+
+    return false;
 }
 
 
