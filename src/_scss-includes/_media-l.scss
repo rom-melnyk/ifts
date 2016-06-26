@@ -1,24 +1,6 @@
 @import "_vars";
 
 @media #{$large-screen} {
-    .application-container > .bricks-container {
-        margin-left: 2em;
-        margin-right: 2em;
-    }
-
-    .brick-int-wrapper {
-        padding: 2em;
-        line-height: 4em;
-    }
-
-    .brick.column-2 .brick-int-wrapper {
-        text-align: center;
-    }
-
-    .brick.column-2 .brick-descr {
-        display: none;
-    }
-
     .ovr-back-text {
         display: none;
     }

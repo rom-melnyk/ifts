@@ -47,7 +47,7 @@ export default class Footer extends Component {
                             {/*counterNoScript*/}
                         </p>
                     </div>
-                    <div className="column-1 footer-design transition-opa-5">
+                    <div className="column-1 footer-design transition-opa">
                         <p>Придумав <a href="mailto:whiplash@ukr.net">Богдан&nbsp;Тимків</a></p>
                         <p>Реалізував <a href="mailto:email.rom.melnyk@gmail.com">Роман&nbsp;Мельник</a></p>
                     </div>

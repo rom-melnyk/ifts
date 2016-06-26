@@ -1,3 +1,5 @@
+import './brick.scss';
+
 import React, { Component } from 'react';
 
 export default class Brick extends Component {
@@ -6,10 +8,9 @@ export default class Brick extends Component {
         const _classNames = (['brick', ...classNames]).join(' ');
         return (
             <div className={_classNames} id={id} /*dataAcript={script}*/>
-                <a className="brick-link" href={link || `#${id}`} title={description}>
-                    <div className="brick-int-wrapper transition-bg-color-5">
-                        <i className={`fa icon-xl ${icon}`} /><span className="brick-descr">{title}</span>
-                    </div>
+                <a className="transition-bg-color" href={link || `#${id}`} title={description}>
+                    <i className={`fa ${icon} transition-transform`} />
+                    <span className="brick-title transition-transform">{title}</span>
                 </a>
             </div>
         );

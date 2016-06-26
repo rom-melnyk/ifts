@@ -1,42 +1,89 @@
-.brick-int-wrapper {
-    margin: 0 0.3em 0.3em 0;
-    padding: 2em 3em;
-    line-height: 8em;
+@import '../../../_scss-includes/_vars';
+
+.brick a {
+    position: relative;
+    display: block;
+    margin: 0.15em;
+    height: 10em;
+
+    * {
+        position: absolute;
+        display: block;
+        vertical-align: middle;
+        text-decoration: none;
+    }
+
+    i {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 55px;
+        vertical-align: middle;
+    }
+
+    .brick-title {
+        width: 60%;
+        bottom: .5em;
+        left: 20%;
+
+        text-align: center;
+        font-size: 75%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &:hover {
+        i {
+            transform: translate(-50%, -65%) scale(.85);
+        }
+
+        .brick-title {
+            transform: scale(1.25) translateY(-35%);
+        }
+    }
 }
 
-.brick-link * {
-    text-decoration: none;
+
+// ----------- overrides -----------
+.column-1 {
+    a {
+        text-align: center;
+
+        .brick-title {
+            display: none;
+        }
+
+        &:hover i {
+            transform: translate(-50%, -50%) scale(1.25);
+        }
+    }
 }
 
-.brick-link i,
-.brick-descr {
-    display: inline-block;
-    vertical-align: middle;
+
+// --------------- @media overrides ---------------
+@media #{$large-screen} {
+    //.column-2 a {
+    //    .brick-title {
+    //        display: none;
+    //    }
+    //}
 }
 
-.brick-link i {
-    margin: -5px 0; /* fixes the height */
+@media #{$small-screen} {
+    .brick a {
+        i {
+            font-size: 45px;
+        }
+
+        //.brick-title {
+        //    max-width: 45%;
+        //    margin-left: 2em;
+        //}
+    }
 }
 
-.brick-descr {
-    max-width: 50%;
-    max-height: 60%;
-    margin-left: 3em;
-    font-size: 75%;
-    line-height: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
-.brick.column-1 .brick-int-wrapper {
-    text-align: center;
-}
-
-.brick.column-1 .brick-descr {
-    display: none;
-}
-
-/* ------ custom icons ------ */
+// ----------- custom icons -----------
 .icon-custom {
     width: 1.2em;
     height: 1.1em;
@@ -59,4 +106,3 @@
 .icon-custom-slando {
     background-image: url("/gfx/icon-slando.png");
 }
-

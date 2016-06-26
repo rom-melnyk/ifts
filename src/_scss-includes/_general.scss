@@ -67,21 +67,13 @@ a {
 
 /* --------------------------------------- icons --------------------------------------- */
 i {
-    .icon-xxl {
-        font-size: 95px;
-        vertical-align: middle;
-    }
-
-    .icon-xl {
-        font-size: 55px;
-        vertical-align: middle;
-    }
-
+    // TODO move to overlay
     .icon-l {
         font-size: 35px;
         vertical-align: middle;
     }
 
+    // TODO move to header
     .icon-s {
         font-size: 25px;
         vertical-align: middle;
@@ -145,18 +137,28 @@ i {
 }
 
 /* --------------------------------------- transition --------------------------------------- */
-.transition-opa-5 {
-    -webkit-transition: opacity .5s;
-    -moz-transition: opacity .5s;
-    -ms-transition: opacity .5s;
-    -o-transition: opacity .5s;
-    transition: opacity .5s;
+$transition-duration: .325s;
+
+.transition-opa {
+    -webkit-transition: opacity $transition-duration;
+    -moz-transition: opacity $transition-duration;
+    -ms-transition: opacity $transition-duration;
+    -o-transition: opacity $transition-duration;
+    transition: opacity $transition-duration;
 }
 
-.transition-bg-color-5 {
-    -webkit-transition: background-color .5s;
-    -moz-transition: background-color .5s;
-    -ms-transition: background-color .5s;
-    -o-transition: background-color .5s;
-    transition: background-color .5s;
+.transition-bg-color {
+    -webkit-transition: background-color $transition-duration;
+    -moz-transition: background-color $transition-duration;
+    -ms-transition: background-color $transition-duration;
+    -o-transition: background-color $transition-duration;
+    transition: background-color $transition-duration;
+}
+
+.transition-transform {
+    -webkit-transition: transform $transition-duration;
+    -moz-transition: transform $transition-duration;
+    -ms-transition: transform $transition-duration;
+    -o-transition: transform $transition-duration;
+    transition: transform $transition-duration;
 }

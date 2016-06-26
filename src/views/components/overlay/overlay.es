@@ -14,8 +14,8 @@ export default class Overlay extends Component {
 
         return (
             <div className={classNames}>
-                <div className="ovr-shader transition-opa-5"></div>
-                <div className="ovr-container transition-opa-5">
+                <div className="ovr-shader transition-opa"></div>
+                <div className="ovr-container transition-opa">
                     <div className="ovr-header">
                         <a className="ovr-back" href="javascript://"><i className="fa fa-angle-left icon-l" /><span className="ovr-back-text">на головну</span></a>
                         <span className="ovr-title">{title}</span>

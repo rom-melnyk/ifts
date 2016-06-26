@@ -2,12 +2,12 @@
     $base-color: hsla(60 * $i, 70%, 40%, .9);
 
     .brick.color-#{$i} {
-        .brick-int-wrapper {
+        a {
             background-color: $base-color;
-        }
 
-        a:hover .brick-int-wrapper {
-            background-color: change_color($base-color, $lightness: 30%, $alpha: 1);
+            &:hover {
+                background-color: change_color($base-color, $lightness: 30%, $alpha: 1);
+            }
         }
     }
 
