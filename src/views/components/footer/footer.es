@@ -2,7 +2,19 @@ import './footer.scss';
 
 import React, { Component } from 'react';
 
+const COUNTER_ID = 'counter';
+
 export default class Footer extends Component {
+    componentDidMount() {
+        const counter = this.refs[COUNTER_ID];
+        const script = document.createElement('script');
+        // script.async = 'true';
+        script.type = 'text/javascript';
+        script.src = 'http://counter8.01counter.com/private/counter.js?c=1d1c70c249f97cdf37d58ad71abd6274';
+
+        counter.appendChild(script);
+    }
+
     render() {
         const counter = (
             <script type="text/javascript">
@@ -10,7 +22,7 @@ export default class Footer extends Component {
                     'var sc_project=10142154; ' +
                     'var sc_invisible=0; ' +
                     'var sc_security="0d25dfee"; ' +
-                    'document.write("<sc" + "ript type=\'text/javascript\' src=\'" + scJsHost + "http://www.statcounter.com/counter/counter.js\'></" + "script>");'
+                    'document.write("<sc" + "ript type=\'text/javascript\' src=\'http://www.statcounter.com/counter/counter.js\'></" + "script>");'
                 }
             </script>
         );
@@ -42,8 +54,8 @@ export default class Footer extends Component {
                         </div>
                     </div>
                     <div className="column-1 footer-counters">
-                        <p>
-                            {counter}
+                        <p ref={COUNTER_ID}>
+                            {/*counter*/}
                             {/*counterNoScript*/}
                         </p>
                     </div>
