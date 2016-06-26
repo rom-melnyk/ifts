@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { closeOverlay } from '../actions.es'
+import { closeOverlay } from '../../../actions.es'
 
 export default class Overlay extends Component {
     componentDidMount() {
@@ -9,10 +9,11 @@ export default class Overlay extends Component {
     }
 
     render() {
-        const { title, body } = this.props;
+        const { title, body, animate } = this.props;
+        const classNames = 'overlay-window' + (animate && ' transition-trigger' || '');
 
         return (
-            <div className="overlay-window hidden">
+            <div className={classNames}>
                 <div className="ovr-shader transition-opa-5"></div>
                 <div className="ovr-container transition-opa-5">
                     <div className="ovr-header">

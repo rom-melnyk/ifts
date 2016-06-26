@@ -9,7 +9,6 @@ import { openOverlay } from './actions.es';
 import { updateState } from './state.es';
 
 
-updateState('bricks', getBricksData());
 window.IFTS = {
     runApp: () => {
         const appContainer = document.createElement('div');
@@ -17,6 +16,8 @@ window.IFTS = {
         document.body.appendChild(appContainer);
 
         ReactDOM.render(<Main />, appContainer);
+
+        updateState('bricks', getBricksData());
     }
 };
 

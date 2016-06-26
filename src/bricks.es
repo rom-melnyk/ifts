@@ -50,7 +50,7 @@ export function getBricksData() {
         ];
 
         if (!newBrick.link) {
-            newBrick.link = `#${idx}`;
+            newBrick.link = `#${newBrick.id}`;
         }
 
         if (newBrick.body) {

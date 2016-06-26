@@ -1,7 +1,7 @@
 const listeners = [];
 
 const state = {
-    bricks: null,
+    bricks: [],
     overlay: null
 };
 
