@@ -46,7 +46,7 @@ export function getBricksData() {
 
         newBrick.classNames = [
             `column-${width}`,
-            `color-${random(0, Constants.MAX_COLORS - 1)}`
+            `color-${random(1, Constants.MAX_COLORS)}`
         ];
 
         if (!newBrick.link) {

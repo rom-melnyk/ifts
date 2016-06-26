@@ -1,5 +1,6 @@
 @import "_font";
 @import "_vars";
+@import "mixins";
 
 
 // --------------------------- resetting ---------------------------
@@ -137,25 +138,13 @@ a {
 
 // --------------------------- transition ---------------------------
 .transition-opa {
-    -webkit-transition: opacity $transition-duration;
-    -moz-transition: opacity $transition-duration;
-    -ms-transition: opacity $transition-duration;
-    -o-transition: opacity $transition-duration;
-    transition: opacity $transition-duration;
+    @include auto-prefix-transition(opacity);
 }
 
-.transition-bg-color {
-    -webkit-transition: background-color $transition-duration;
-    -moz-transition: background-color $transition-duration;
-    -ms-transition: background-color $transition-duration;
-    -o-transition: background-color $transition-duration;
-    transition: background-color $transition-duration;
+.transition-background {
+    @include auto-prefix-transition(background-color);
 }
 
 .transition-transform {
-    -webkit-transition: transform $transition-duration;
-    -moz-transition: transform $transition-duration;
-    -ms-transition: transform $transition-duration;
-    -o-transition: transform $transition-duration;
-    transition: transform $transition-duration;
+    @include auto-prefix-transition(transform);
 }

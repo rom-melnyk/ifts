@@ -8,7 +8,8 @@ export default class Brick extends Component {
         const _classNames = (['brick', ...classNames]).join(' ');
         return (
             <div className={_classNames} id={id} /*dataAcript={script}*/>
-                <a className="transition-bg-color" href={link || `#${id}`} title={description}>
+                <a className="transition-background" href={link || `#${id}`} title={description}>
+                    <div className="shader transition-opa"></div>
                     <i className={`fa ${icon} transition-transform`} />
                     <span className="brick-title transition-transform">{title}</span>
                 </a>

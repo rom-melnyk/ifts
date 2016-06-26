@@ -1,0 +1,18 @@
+@import "_vars";
+
+@mixin auto-prefix-transition($prop) {
+    -webkit-transition: #{$prop} $transition-duration;
+    -moz-transition: #{$prop} $transition-duration;
+    -ms-transition: #{$prop} $transition-duration;
+    -o-transition: #{$prop} $transition-duration;
+    transition: #{$prop} $transition-duration;
+}
+
+@mixin gradient($from, $to) {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a90329+0,8f0222+44,6d0019+100;Brown+Red+3D */
+    background: $from; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  $from 0%, $to 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  $from 0%, $to 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, $from 0%, $to 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+}
