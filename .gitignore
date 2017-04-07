@@ -1,0 +1,19 @@
+## Compiled assets
+___upload-me___*/
+style.css
+script.js
+*.map
+
+## Dev environments: WebStorm, Eclipse, VSCode
+.buildpath
+.idea/
+.vscode/
+.project
+.settings/
+
+## JS things
+node_modules/
+
+## Desing drawings
+_design/
+
