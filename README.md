@@ -11,11 +11,6 @@ This version is made for basic PHP/Apache-powered server.
 1. Adjust directories in `apache2.conf` by running `cat apache2.conf | sed "s:/home.*\.if\.ua:$(pwd):g" > apache2.conf`
 1. Restart the Apache2: `sudo systemctl restart apache2.service`
 
-## JS and CSS development
-- `npm run dev` watches and compiles all the JS and CSS assets
-- `npm run prod` does the same but generates uglified code for production.  
-   **TODO this script!**
-
 ## Develop and deploy
 1. `npm dev`: compiles all the client assets, copies them to **`depoy/`** folder.
 1. `npm prod`: behaves similar but generates minified files (prod-friendly).
@@ -23,17 +18,6 @@ This version is made for basic PHP/Apache-powered server.
 
 ## Some tricks:
 - `tail -f logs/error.log` to track the Apache/PHP errors.
-
-## Directories and files
-- **`develop/js`** and **`develop/css`** contains JS and CSS dev files. Should not be upoladed to the server!
-- **`deploy/`** will contain everything you need to upload to the server.
-- **`index.php`**
-- **`.htaccess`**
-- PHP scripts.
-- all the XML or JSON files.
-- static content like images.
-
-
 
 ---
 
