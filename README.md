@@ -16,16 +16,16 @@ This version is made for basic PHP/Apache-powered server.
 - `npm run prod` does the same but generates uglified code for production.  
    **TODO this script!**
 
-## Upload files
-1. Run `./compile.sh`. That will compile all the client assets, copy them to appropriate **`depoy/`** folder.
+## Develop and deploy
+1. `npm dev`: compiles all the client assets, copies them to **`depoy/`** folder.
+1. `npm prod`: behaves similar but generates minified files (prod-friendly).
 1. Upload the content of that folder to the server via FTP.
 
 ## Some tricks:
 - `tail -f logs/error.log` to track the Apache/PHP errors.
-- `rm -fr ___upload-me*` to clean-up latest compiled versions.
 
 ## Directories and files
-- **`js-src/`** and **`css-src/`** contains JS and CSS dev files. Should not be upoladed to the server!
+- **`develop/js`** and **`develop/css`** contains JS and CSS dev files. Should not be upoladed to the server!
 - **`deploy/`** will contain everything you need to upload to the server.
 - **`index.php`**
 - **`.htaccess`**
