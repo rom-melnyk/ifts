@@ -1,0 +1,24 @@
+{
+  "name": "ifts.if.ua",
+  "version": "1.0.0",
+  "description": "ifts.if.ua site (version for basic PHP/Apache-powered server)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rom-melnyk/ifts.git"
+  },
+  "keywords": [],
+  "author": "Roman Melnyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rom-melnyk/ifts/issues"
+  },
+  "homepage": "https://github.com/rom-melnyk/ifts#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "private": true
+}

@@ -17,7 +17,7 @@ This version is made for basic PHP/Apache-powered server.
    **TODO this script!**
 
 ## Upload files
-1. Run `./compile.sh`. That will compile all the client assets, copy them to appropriate **`___upload-me___`** folder.
+1. Run `./compile.sh`. That will compile all the client assets, copy them to appropriate **`depoy/`** folder.
 1. Upload the content of that folder to the server via FTP.
 
 ## Some tricks:
@@ -26,7 +26,7 @@ This version is made for basic PHP/Apache-powered server.
 
 ## Directories and files
 - **`js-src/`** and **`css-src/`** contains JS and CSS dev files. Should not be upoladed to the server!
-- **`___upload-me___\<date\>`** will contain everything you need to upload to the server.
+- **`deploy/`** will contain everything you need to upload to the server.
 - **`index.php`**
 - **`.htaccess`**
 - PHP scripts.
