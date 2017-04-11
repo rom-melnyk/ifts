@@ -11,10 +11,14 @@
 html, body {
   min-height: 100%;
   overflow: hidden;
+}
+
+body {
+  background-color: hsl(240, 20, 20%);
+  color: #fff;
   font-size: 18px;
   font-family: sans-serif;
 }
-
 
 // ------------------ top-level layout ------------------
 .main-content {

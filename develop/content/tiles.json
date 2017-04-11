@@ -1,0 +1,16 @@
+[
+    {
+        "title": "title 1",
+        "icon-class": "icon-1"
+    },
+    {
+        "title": "title-2",
+        "icon-file": "icon-2.png",
+        "content": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
+    },
+    {
+        "title": "title-3",
+        "icon-file": "icon-3.png",
+        "content-file": "file-3.html"
+    }
+]

@@ -1,3 +1,7 @@
+<?php
+include_once __DIR__ . '/php/tiles.php';
+?>
+
 <html>
 <head>
     <title>ІфТехСервіс 2013-2017</title>
@@ -23,6 +27,7 @@
 
         <section>
             /-- main content --/
+            <p><?php  render_tiles(); ?></p>
         </section>
 
         <footer class="row">
