@@ -1,0 +1,22 @@
+.tile {
+    padding: 0.1em;
+
+    .inner-wrapper {
+        padding: .5em;
+        background-color: #44f;
+
+        .icon {
+            width: 3.5em;
+            height: 3em;
+            margin: 2em auto 1.5em auto;
+            border: 1px dashed #aed;
+
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .title {
+            font-size: 75%;
+        }
+    }
+}

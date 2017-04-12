@@ -1,5 +1,6 @@
 <?php
 $PATH = __DIR__ . '/../content/tiles.json';
+$ICONS_BASE = 'gfx/icons/';
 
 function read_file() {
     global $PATH;
@@ -19,9 +20,10 @@ function render_tiles() {
     $count = count($content);
     for ($i = 0; $i < $count; $i++) {
         $object = $content[$i];
-        echo '<div class="tile"><div class="inner-wrapper">';
-        echo get_title($object);
+        $width = rand(1, 4);
+        echo "<div class=\"tile column-$width\"><div class=\"inner-wrapper\">";
         echo get_icon($object);
+        echo get_title($object);
         echo '</div></div>';
     }
 }
@@ -34,8 +36,9 @@ function get_title($object) {
 }
 
 function get_icon($object) {
+    global $ICONS_BASE;
     if (array_key_exists('icon-file', $object)) {
-        return "<div class=\"icon file\" style=\"background-image: url('${object['icon-file']}')\"></div>";
+        return "<div class=\"icon file\" style=\"background-image: url('${ICONS_BASE}${object['icon-file']}')\"></div>";
     } else if (array_key_exists('icon-class', $object)) {
         return "<div class=\"icon ${object['icon-class']}\"></div>";
     } else {

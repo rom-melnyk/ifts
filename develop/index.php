@@ -5,6 +5,7 @@ include_once __DIR__ . '/php/tiles.php';
 <html>
 <head>
     <title>ІфТехСервіс 2013-2017</title>
+    <link rel="icon" href="./gfx/icons/favicon.ico">
     <link rel="stylesheet" href="./style.css">
     <script type="application/javascript" src="./script.js"></script>
 </head>
@@ -25,7 +26,7 @@ include_once __DIR__ . '/php/tiles.php';
             </div>
         </header>
 
-        <section>
+        <section class="row">
             <p><?php  render_tiles(); ?></p>
         </section>
 

@@ -1,7 +1,7 @@
 [
     {
         "title": "ІФТехСервіс",
-        "icon-file": "icon-custom-ifts.png",
+        "icon-file": "icon-ifts.png",
         "description": "ІФТехСервіс &mdash; про нас",
         "content-file": "about-us.html"
     },
@@ -31,25 +31,25 @@
     },
     {
         "title": "Ми на List.if.ua",
-        "icon-file": "list-if-ua.png",
+        "icon-file": "icon-list.png",
         "description": "List.if.ua — відгуки про нас",
         "link": "http://list.if.ua/54147/%D0%86%D0%A4%D0%A2%D0%B5%D1%85%D0%A1%D0%B5%D1%80%D0%B2%D1%96%D1%81-%D0%86%D0%B2%D0%B0%D0%BD%D0%BE-%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA"
     },
     {
         "title": "Ми на SkyLots",
-        "icon-file": "skylots.png",
+        "icon-file": "icon-skylots.png",
         "description": "Ми на SkyLots",
         "link": "https://skylots.org/search.php?seller_id=14323956&amp;catid=0&amp;orderby=2"
     },
     {
         "title": "Ми на NewAuction",
-        "icon-file": "new-auction.png",
+        "icon-file": "icon-new-auction.png",
         "description": "Ми на NewAuction",
         "link": "https://newauction.com.ua/listing/offer/glavnaja-1?flt_prp_offerstate=0&amp;flt_prp_owner=14323956&amp;flt_prp_sesend=gt__macro_now&amp;flt_prp_sesstart=lt__macro_now&amp;srt_prp_cur_price=dsc&amp;ipp=60"
     },
     {
         "title": "Ми на Slando/OLX",
-        "icon-file": "sladno.png",
+        "icon-file": "icon-slando.png",
         "description": "Ми на Slando/OLX",
         "link": "http://olx.ua/list/user/11VK1"
     },
