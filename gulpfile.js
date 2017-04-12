@@ -84,6 +84,7 @@ gulp.task('static:copy', () => {
             `${DIRS.Develop}/index.php`,
             `${DIRS.Develop}/php/**/*`,
             `${DIRS.Develop}/content/**/*`,
+            `${DIRS.Develop}/gfx/**/*`,
         ], { base: `${DIRS.Develop}` })
         .pipe(gulp.dest(`${DIRS.Deploy}`));
 });
