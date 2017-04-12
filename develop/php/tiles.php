@@ -16,11 +16,30 @@ function read_file() {
 
 function render_tiles() {
     $content = read_file();
-    for ($i = 0; $i < count($content); $i++) {
+    $count = count($content);
+    for ($i = 0; $i < $count; $i++) {
         $object = $content[$i];
-        echo "<div>";
-        echo $object->{'title'};
-        echo "</div>";
+        echo '<div class="tile"><div class="inner-wrapper">';
+        echo get_title($object);
+        echo get_icon($object);
+        echo '</div></div>';
+    }
+}
+
+// ----------------------- helpers -----------------------
+function get_title($object) {
+    return array_key_exists('title', $object)
+        ? "<div class=\"title\">${object['title']}</div>"
+        : '';
+}
+
+function get_icon($object) {
+    if (array_key_exists('icon-file', $object)) {
+        return "<div class=\"icon file\" style=\"background-image: url('${object['icon-file']}')\"></div>";
+    } else if (array_key_exists('icon-class', $object)) {
+        return "<div class=\"icon ${object['icon-class']}\"></div>";
+    } else {
+        return '';
     }
 }
 ?>

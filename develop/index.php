@@ -26,7 +26,6 @@ include_once __DIR__ . '/php/tiles.php';
         </header>
 
         <section>
-            /-- main content --/
             <p><?php  render_tiles(); ?></p>
         </section>
 
