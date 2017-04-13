@@ -1,0 +1,19 @@
+.logo {
+    & > * {
+        width: 80%;
+    }
+
+    // .logo-big {
+    //     height: auto;
+    // }
+
+    .slogan {
+        margin-top: 1.5em;
+        text-align: center;
+        font-size: 150%;
+    }
+}
+
+.contact-us {
+    
+}

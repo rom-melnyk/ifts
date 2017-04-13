@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/php/tiles.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/php/tiles.php';
 ?>
 
 <html>
@@ -11,37 +11,13 @@ include_once __DIR__ . '/php/tiles.php';
 </head>
 <body onload="IFTS.start();">
     <div class="main-content">
-        <header class="row">
-            <div class="column-3">
-                <div class="logo">/-- LOGO --/</div>
-            </div>
-            <div class="column-1">
-                <div class="phone-nums">
-                    <ul>
-                        <li>+380 (67) 111-2233</li>
-                        <li>+380 (67) 111-2233</li>
-                        <li>+380 (67) 111-2233</li>
-                    </ul>
-                </div>
-            </div>
-        </header>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/includes/header.php'; ?>
 
         <section class="row">
-            <p><?php  render_tiles(); ?></p>
+            <?php render_tiles(); ?>
         </section>
 
-        <footer class="row">
-            <div class="column-1">
-                <div class="logo">IFTS</div>
-            </div>
-            <div class="column-2">
-                <div class="phone-nums">Repair SEO test</div>
-            </div>
-            <div class="column-1">
-                &copy; IFTS
-                Розробка: ...
-            </div>
-        </footer>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/includes/footer.php'; ?>
     </div>
 </body>
 </html>

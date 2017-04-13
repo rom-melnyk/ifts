@@ -1,5 +1,5 @@
 <?php
-$PATH = __DIR__ . '/../content/tiles.json';
+$PATH = $_SERVER['DOCUMENT_ROOT'] . '/content/tiles.json';
 $ICONS_BASE = 'gfx/icons/';
 
 function read_file() {

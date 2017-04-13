@@ -18,6 +18,20 @@ body {
   font-family: sans-serif;
 }
 
+p {
+  margin-bottom: .75em;
+  line-height: 150%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+li {
+  list-style: none none;
+}
+
 // ------------------ top-level layout ------------------
 .main-content {
   min-height: 100%;
