@@ -75,13 +75,20 @@ gulp.task('css:watch', () => {
 
 // -------------------- SERVICE --------------------
 gulp.task('cleanup', () => {
-    del.sync([ `${DIRS.Deploy}/**`, `!${DIRS.Deploy}`, `!${DIRS.Deploy}/.gitignore` ]);
+    del.sync([
+        `${DIRS.Deploy}/**`,
+        // ignore following
+        `!${DIRS.Deploy}`,
+        `!${DIRS.Deploy}/.gitignore`,
+        `!${DIRS.Deploy}/.htaccess`
+    ]);
 });
 
 gulp.task('static:copy', () => {
     return gulp
         .src([
-            `${DIRS.Develop}/index.php`,
+            `${__dirname}/.htaccess`, // Why the fuck this does not work?
+            `${DIRS.Develop}/*.php`,
             `${DIRS.Develop}/php/**/*`,
             `${DIRS.Develop}/content/**/*`,
             `${DIRS.Develop}/gfx/**/*`,
@@ -92,6 +99,7 @@ gulp.task('static:copy', () => {
 gulp.task('static:watch', () => {
     gulp.watch([
             `${DIRS.Develop}/**`,
+            // ignore following
             `!${DIRS.Develop}/js/**`,
             `!${DIRS.Develop}/css/**`
         ],
