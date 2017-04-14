@@ -1,6 +1,7 @@
 # ifts.if.ua v02 (restyled)
 This version is made for basic PHP/Apache-powered server.
 
+
 # Development
 ## Server setup
 1. `sudo apt-get install apache2 php7.0 php7.0-mysql php7.0-curl php7.0-json php7.0-cgi libapache2-mod-php7.0`
@@ -14,12 +15,33 @@ This version is made for basic PHP/Apache-powered server.
 ## Develop and deploy
 1. `npm dev`: compiles all the client assets, copies them to **`depoy/`** folder.
 1. `npm prod`: behaves similar but generates minified files (prod-friendly).
-1. Upload the content of that folder to the server via FTP.
+1. Upload the content of **`deploy/`** to the server via FTP.
 
 ## Some tricks:
 - `tail -f logs/error.log` to track the Apache/PHP errors.
 
+
+# Architecture
+## `content/tiles.json`
+Is an array of objects responsible for every particular tile in the main page.
+Props expected (all `String`):
+
+- **title**;
+- **description**;
+- **icon-class** is the CSS class name to be passed to thr icon element,  
+   or **icon-file** (the filename with extension; all icons reside in `gfx/icons/`);
+- **link** (URL of the external page)  
+   or **content-file** (the filename _without extension_ in `content/` responsible for appropriate area).
+
+## `index.php`
+Main entry point; home page. Contains tiles according to `tiles.json`;
+
+## `page.php`
+Internal links (`content-file` in `tiles.json`) lead to `/page/<...>` which is redirected via `.htaccess` to `page.php?name=<...>`. The file from `content/` with appropriate name and extension `.php` or `.html` will be injected in the page.
+
+
 ---
+
 
 # Credits
 Roman Melnyk <email.rom.melnyk@gmail.com>
