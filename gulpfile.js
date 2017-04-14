@@ -84,17 +84,16 @@ gulp.task('cleanup', () => {
     ]);
 });
 
-gulp.task('static:copy', () => {
-    return gulp
-        .src([
-            `${__dirname}/.htaccess`, // Why the fuck this does not work?
-            `${DIRS.Develop}/*.php`,
-            `${DIRS.Develop}/php/**/*`,
-            `${DIRS.Develop}/content/**/*`,
-            `${DIRS.Develop}/gfx/**/*`,
-        ], { base: `${DIRS.Develop}` })
-        .pipe(gulp.dest(`${DIRS.Deploy}`));
-});
+gulp.task('static:copy', () => gulp
+    .src([
+        // `${__dirname}/.htaccess`, // Why the fuck this does not work?
+        `${DIRS.Develop}/*.php`,
+        `${DIRS.Develop}/php/**/*`,
+        `${DIRS.Develop}/content/**/*`,
+        `${DIRS.Develop}/gfx/**/*`,
+    ], { base: `${DIRS.Develop}` })
+    .pipe(gulp.dest(`${DIRS.Deploy}`))
+);
 
 gulp.task('static:watch', () => {
     gulp.watch([
