@@ -20,11 +20,22 @@ function render_tiles() {
     $count = count($content);
     for ($i = 0; $i < $count; $i++) {
         $object = $content[$i];
+        $link = get_link($object);
         $width = rand(1, 4);
-        echo "<div class=\"tile column-$width\"><div class=\"inner-wrapper\">";
+        echo "<div class=\"tile column-$width\">";
+        if ($link) {
+            echo "<a href=\"$link\" class=\"inner-wrapper\" title=\"Перейти на сайт\">";
+        } else {
+            echo '<div class="inner-wrapper">';
+        }
         echo get_icon($object);
         echo get_title($object);
-        echo '</div></div>';
+        if ($link) {
+            echo '</a>';
+        } else {
+            echo '</div>';
+        }
+        echo '</div>';
     }
 }
 
@@ -44,5 +55,11 @@ function get_icon($object) {
     } else {
         return '';
     }
+}
+
+function get_link($object) {
+    return array_key_exists('link', $object)
+        ? $object['link']
+        : FALSE;
 }
 ?>

@@ -1,22 +1,31 @@
+@import "constants";
+
 .tile {
     padding: 0.1em;
 
     .inner-wrapper {
+        display: block;
         padding: .5em;
         background-color: #44f;
+        text-decoration: none;
+
+        * {
+            color: $text-color;
+            text-decoration: none;
+        }
 
         .icon {
             width: 3.5em;
             height: 3em;
             margin: 2em auto 1.5em auto;
-            border: 1px dashed #aed;
+            border: 1px dashed #768;
 
             background-position: center center;
             background-repeat: no-repeat;
         }
 
         .title {
-            font-size: 75%;
+            @extend .small-text;
         }
     }
 }

@@ -1,6 +1,8 @@
+@import "constants";
+
 footer {
     & > * {
-        font-size: 75%;
+        @extend .small-text;
     }
 }
 
