@@ -7,7 +7,7 @@
         <ul>
             <li><i class="fa fa-phone icon-s"></i><b>(097)</b> 133-22-11</li>
             <li><i class="fa fa-phone icon-s"></i><b>(095)</b> 029-69-29</li>
-            <li><i class="fa fa-envelope-o icon-s"></i><a href="mailto:whiplash@ukr.net">whiplash@ukr.net</a></li>
+            <li><i class="fa fa-envelope-o icon-s"></i><a class="link" href="mailto:whiplash@ukr.net">whiplash@ukr.net</a></li>
         </ul>
     </div>
 </header>

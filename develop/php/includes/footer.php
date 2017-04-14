@@ -18,7 +18,7 @@
         <p>[counter-2]</p>
     </div>
     <div class="column-1 footer-design transition-opa-5">
-        <p>Придумав <a href="mailto:whiplash@ukr.net">Богдан&nbsp;Тимків</a></p>
-        <p>Реалізував <a href="mailto:email.rom.melnyk@gmail.com">Роман&nbsp;Мельник</a></p>
+        <p>Придумав <a class="link" href="mailto:whiplash@ukr.net">Богдан&nbsp;Тимків</a></p>
+        <p>Реалізував <a class="link" href="mailto:email.rom.melnyk@gmail.com">Роман&nbsp;Мельник</a></p>
     </div>
 </footer>
