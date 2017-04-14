@@ -3,25 +3,25 @@
         "title": "ІФТехСервіс",
         "icon-file": "icon-ifts.png",
         "description": "ІФТехСервіс &mdash; про нас",
-        "content-file": "about-us.html"
+        "content-file": "about-us"
     },
     {
         "title": "Де і як нас знайти",
         "icon-class": "fa-map-marker",
         "description": "Де і як нас знайти",
-        "content-file": "map.html"
+        "content-file": "map"
     },
     {
         "title": "Фото",
         "icon-class": "fa-photo",
         "description": "Краще раз побачити",
-        "content-file": "photo.html"
+        "content-file": "photo"
     },
     {
         "title": "Ми у Facebook",
         "icon-class": "fa-facebook-square",
         "description": "Група у Facebook &mdash; тут можна поговорити з нами",
-        "content-file": "facebook.html"
+        "content-file": "facebook"
     },
     {
         "title": "Наш Youtube-канал",
@@ -57,6 +57,6 @@
         "title": "Наші партнери",
         "icon-class": "fa-thumbs-up",
         "description": "Наші партнери",
-        "content-file": "partners.html"
+        "content-file": "partners"
     }
 ]

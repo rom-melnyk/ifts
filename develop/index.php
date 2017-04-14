@@ -1,13 +1,8 @@
-<?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/php/tiles.php';
-?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/php/tiles.php'; ?>
 
 <html>
 <head>
-    <title>ІфТехСервіс 2013-2017</title>
-    <link rel="icon" href="./gfx/icons/favicon.ico">
-    <link rel="stylesheet" href="./style.css">
-    <script type="application/javascript" src="./script.js"></script>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/php/includes/head.php'; ?>
 </head>
 <body onload="IFTS.start();">
     <div class="main-content">

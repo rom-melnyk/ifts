@@ -20,21 +20,13 @@ function render_tiles() {
     $count = count($content);
     for ($i = 0; $i < $count; $i++) {
         $object = $content[$i];
-        $link = get_link($object);
+        $wrapper = get_wrapper($object);
         $width = rand(1, 4);
         echo "<div class=\"tile column-$width\">";
-        if ($link) {
-            echo "<a href=\"$link\" class=\"inner-wrapper\" title=\"Перейти на сайт\">";
-        } else {
-            echo '<div class="inner-wrapper">';
-        }
+        echo $wrapper['open'];
         echo get_icon($object);
         echo get_title($object);
-        if ($link) {
-            echo '</a>';
-        } else {
-            echo '</div>';
-        }
+        echo $wrapper['close'];
         echo '</div>';
     }
 }
@@ -57,9 +49,43 @@ function get_icon($object) {
     }
 }
 
+function get_wrapper($object) {
+    $href = FALSE;
+    $link_title = '';
+
+    $link = get_link($object);
+    $content_file = get_content_file($object);
+
+    if ($link) {
+        $href = $link;
+        preg_match('/^https?:\/\/([^\/]+)/', $href, $parsed); // extract the site name
+        if (count($parsed) === 2) {
+            $link_title = "Перейти на ${parsed[1]}";
+        } else {
+            $link_title = 'Перейти на сайт';
+        }
+    } else if ($content_file) {
+        $href = "/page/$content_file";
+        $link_title = 'Перейти на сторінку';
+    }
+
+    return $href
+        ? array(
+            'open' => "<a href=\"$href\" class=\"inner-wrapper\" title=\"$link_title\">",
+            'close' => '</a>'
+        )
+        : array('open' => '<div class="inner-wrapper">', 'close' => '</div>');
+}
+
 function get_link($object) {
     return array_key_exists('link', $object)
         ? $object['link']
+        : FALSE;
+}
+
+function get_content_file($object) {
+    return array_key_exists('content-file', $object)
+        ? $object['content-file']
         : FALSE;
 }
 ?>
