@@ -30,7 +30,8 @@ $FB_CONFIG = [
 1. Upload the content of **`deploy/`** to the server via FTP.
   - Make sure that folder is writable and `php/` is writable too.
 1. Make sure there are following modules installed on server:
-  - `mbstring` (required for Facebook)
+  - `mbstring` (required for Facebook);
+  - `mod_rewrite` (required for `.htaccess`).
 
 ## Some tricks:
 - `tail -f logs/error.log` to track the Apache/PHP errors.
