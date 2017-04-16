@@ -1,23 +1,26 @@
 @import "constants";
 
+$tile-height: 5em;
+$tile-padding: .1em;
+$icon-size: $tile-height * .75;
+
 .tile {
-    padding: 0.1em;
+    padding: $tile-padding;
 
     .inner-wrapper {
+        position: relative;
         display: block;
-        padding: .5em;
+        height: $tile-height - 2 * $tile-padding; // should be set dynamically
         background-color: #44f;
-        text-decoration: none;
-
-        * {
-            color: $text-color;
-            text-decoration: none;
-        }
 
         .icon {
+            position: relative;
+            top: 50%;
+            left: 50%;
             width: 3.5em;
             height: 3em;
-            margin: 2em auto 1.5em auto;
+            // margin: 2em auto 1.5em auto;
+            transform: translate(-50%, -50%);
             border: 1px dashed #768;
 
             background-position: center center;
@@ -26,6 +29,9 @@
 
         .title {
             @extend .small-text;
+            position: absolute;
+            left: $tile-padding;
+            bottom: $tile-padding;
         }
     }
 }
