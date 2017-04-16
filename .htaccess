@@ -5,3 +5,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^page/([^/?]+) page.php?name=$1 [PT,L]
+RewriteRule ^fb/(.+) page.php?name=$1 [PT,L]

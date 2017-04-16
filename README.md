@@ -4,7 +4,7 @@ This version is made for basic PHP/Apache-powered server.
 
 # Development
 ## Server setup
-1. `sudo apt-get install apache2 php7.0 php7.0-mysql php7.0-curl php7.0-json php7.0-cgi libapache2-mod-php7.0`
+1. `sudo apt-get install apache2 php7.0 php7.0-mysql php7.0-curl php7.0-json php7.0-cgi php7.0-mbstring libapache2-mod-php7.0`
 1. Remap `ifts.if.ua` to `127.0.0.1` in `/etc/hosts`.
 1. Go to the project directory.
 1. Create the symlink from `apache2.conf` to the config file responsible for the project in Apache config directory (mind the correct path to the project dir):  
@@ -13,7 +13,7 @@ This version is made for basic PHP/Apache-powered server.
 1. Restart the Apache2: `sudo systemctl restart apache2.service`
 
 ## FB essentials
-Create `php/fb-config.php`:
+Create `develop/php/fb-config.php`:
 ```
 <?php
 $FB_CONFIG = [
@@ -28,6 +28,8 @@ $FB_CONFIG = [
 1. `npm dev`: compiles all the client assets, copies them to **`depoy/`** folder.
 1. `npm prod`: behaves similar but generates minified files (prod-friendly).
 1. Upload the content of **`deploy/`** to the server via FTP.
+1. Make sure there are following modules installed on server:
+  - `mbstring`
 
 ## Some tricks:
 - `tail -f logs/error.log` to track the Apache/PHP errors.
