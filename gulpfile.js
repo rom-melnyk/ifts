@@ -80,7 +80,9 @@ gulp.task('cleanup', () => {
         // ignore following
         `!${DIRS.Deploy}`,
         `!${DIRS.Deploy}/.gitignore`,
-        `!${DIRS.Deploy}/.htaccess`
+        `!${DIRS.Deploy}/.htaccess`,
+        `!${DIRS.Deploy}/php`,
+        `!${DIRS.Deploy}/php/fb-token.txt`
     ]);
 });
 

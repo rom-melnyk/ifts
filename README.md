@@ -28,8 +28,9 @@ $FB_CONFIG = [
 1. `npm dev`: compiles all the client assets, copies them to **`depoy/`** folder.
 1. `npm prod`: behaves similar but generates minified files (prod-friendly).
 1. Upload the content of **`deploy/`** to the server via FTP.
+  - Make sure that folder is writable and `php/` is writable too.
 1. Make sure there are following modules installed on server:
-  - `mbstring`
+  - `mbstring` (required for Facebook)
 
 ## Some tricks:
 - `tail -f logs/error.log` to track the Apache/PHP errors.
