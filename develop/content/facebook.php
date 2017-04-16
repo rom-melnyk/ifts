@@ -6,31 +6,47 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/facebook-sdk-v5/autoload.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-scripts.php';
 
-/**
- * @url "?login"            renders the login page
- * @url "?save-token"       save the auth token
- */
-$URL_PARAM_LOGIN = "login";
 $URL_PARAM_SAVE_TOKEN = "save-token";
+
 $fb = new Facebook\Facebook($FB_CONFIG);
 $helper = $fb->getRedirectLoginHelper();
 
-function render_login_page() {
+if (isset($_GET[$URL_PARAM_SAVE_TOKEN])) {
+    save_login_token();
+    exit;
+} else {
+    $token = read_token();
+    if (!$token) {
+        render_login_part();
+        exit;
+    }
+
+    $fb->setDefaultAccessToken($token);
+    try {
+        $response = $fb->get('/me'); // https://www.facebook.com/groups/453544624728446/
+    } catch(Facebook\Exceptions\FacebookResponseException $e) {
+        // When Graph returns an error
+        echo 'Graph returned an error: ' . $e->getMessage();
+        exit;
+    } catch(Facebook\Exceptions\FacebookSDKException $e) {
+        // When validation fails or other local issues
+        echo 'Facebook SDK returned an error: ' . $e->getMessage();
+        exit;
+    }
+
+    $response_data = $response->getDecodedBody();
+    echo var_dump($response_data);
+}
+
+// ------------------------ helper functions ------------------------
+function render_login_part() {
     global $URL_PARAM_SAVE_TOKEN;
     global $helper;
 
-    $permissions = ['email'];
-    $login_url = $helper->getLoginUrl("http://ifts.if.ua/fb.php?$URL_PARAM_SAVE_TOKEN", $permissions);
+    echo isset($helper);
+    $login_url = $helper->getLoginUrl("http://ifts.if.ua/page/facebook?$URL_PARAM_SAVE_TOKEN", ['email']);
 
-    echo <<<HTML
-<html>
-<head>
-</head>
-<body>
-    <a href="$login_url">Log in with Facebook</a>
-</body>
-</html>
-HTML;
+    echo "<a href=\"$login_url\">Log in with Facebook</a>";
 }
 
 function save_login_token() {
@@ -50,37 +66,8 @@ function save_login_token() {
 
     if (isset($token)) {
         write_token($token);
+        echo "Wrote token; now reloading the page";
     }
-}
-
-if (isset($_GET[$URL_PARAM_LOGIN])) {
-    render_login_page();
-} else if (isset($_GET[$URL_PARAM_SAVE_TOKEN])) {
-    save_login_token();
-} else {
-    global $fb;
-
-    $token = read_token();
-    if (!$token) {
-        render_login_page();
-        exit;
-    }
-
-    $fb->setDefaultAccessToken($token);
-    try {
-        $response = $fb->get('/me');
-    } catch(Facebook\Exceptions\FacebookResponseException $e) {
-        // When Graph returns an error
-        echo 'Graph returned an error: ' . $e->getMessage();
-        exit;
-    } catch(Facebook\Exceptions\FacebookSDKException $e) {
-        // When validation fails or other local issues
-        echo 'Facebook SDK returned an error: ' . $e->getMessage();
-        exit;
-    }
-
-    $response_data = $response->getDecodedBody();
-    echo var_dump($response_data);
 }
 
 ?>
