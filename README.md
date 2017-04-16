@@ -15,7 +15,13 @@ This version is made for basic PHP/Apache-powered server.
 ## FB essentials
 Create `php/fb-config.php`:
 ```
-
+<?php
+$FB_CONFIG = [
+    'app_id' => '...',
+    'app_secret' => '...',
+    'default_graph_version' => 'v2.8'
+];
+?>
 ```
 
 ## Develop and deploy
