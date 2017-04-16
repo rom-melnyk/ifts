@@ -12,6 +12,12 @@ This version is made for basic PHP/Apache-powered server.
 1. Adjust directories in `apache2.conf` by running `cat apache2.conf | sed "s:/home.*\.if\.ua:$(pwd):g" > apache2.conf`
 1. Restart the Apache2: `sudo systemctl restart apache2.service`
 
+## FB essentials
+Create `php/fb-config.php`:
+```
+
+```
+
 ## Develop and deploy
 1. `npm dev`: compiles all the client assets, copies them to **`depoy/`** folder.
 1. `npm prod`: behaves similar but generates minified files (prod-friendly).
@@ -39,6 +45,8 @@ Main entry point; home page. Contains tiles according to `tiles.json`;
 ## `page.php`
 Internal links (`content-file` in `tiles.json`) lead to `/page/<...>` which is redirected via `.htaccess` to `page.php?name=<...>`. The file from `content/` with appropriate name and extension `.php` or `.html` will be injected in the page.
 
+## Facebook process
+1. 
 
 ---
 
