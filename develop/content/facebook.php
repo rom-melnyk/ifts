@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// define('FACEBOOK_SDK_V4_SRC_DIR', $_SERVER['DOCUMENT_ROOT'] . '/php/facebook-sdk-v5/');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/facebook-sdk-v5/autoload.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-config.php';
 
@@ -11,6 +10,10 @@ $SAVE_TOKEN_URL = "$THIS_PAGE?$SAVE_TOKEN_URL_PARAM";
 $TOKEN_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/php/fb-token.txt';
 $FB_GROUP_ID = '453544624728446';
 $FB_GROUP_PAGE = "https://www.facebook.com/groups/$FB_GROUP_ID/";
+$FB_API_CALL_CONFIG = array(
+    'fields' => 'id,message,full_picture,updated_time',
+    'limit' => '10'
+);
 
 $fb = new Facebook\Facebook($FB_CONFIG);
 $helper = $fb->getRedirectLoginHelper();
@@ -21,7 +24,11 @@ if (isset($_GET[$SAVE_TOKEN_URL_PARAM])) {
     $token = file_exists($TOKEN_FILENAME) ? file_get_contents($TOKEN_FILENAME) : FALSE;
     if ($token) {
         $posts = get_posts($token);
-        render_posts($posts);
+        if ($posts) {
+            render_posts($posts);
+        } else {
+            render_login_part();
+        }
     } else {
         render_login_part();
     }
@@ -54,10 +61,10 @@ function save_login_token() {
 
     try {
         $token = $helper->getAccessToken();
-    } catch(Facebook\Exceptions\FacebookResponseException $e) {
+    } catch (Facebook\Exceptions\FacebookResponseException $e) {
         log_error('Graph API', $e->getMessage());
         $token = FALSE;
-    } catch(Facebook\Exceptions\FacebookSDKException $e) {
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
         log_error('SDK', $e->getMessage());
         $token = FALSE;
     }
@@ -88,26 +95,47 @@ HTML;
 
 function get_posts($token) {
     global $fb;
-    $fb->setDefaultAccessToken($token);
+    global $FB_GROUP_ID;
+    global $FB_API_CALL_CONFIG;
 
     try {
-        $response = $fb->get('/me');
-    } catch(Facebook\Exceptions\FacebookResponseException $e) {
+        $fb_app = $fb->getApp();
+        $request = new Facebook\FacebookRequest(
+            $fb_app,
+            $token,
+            'GET',
+            "/$FB_GROUP_ID/feed",
+            $FB_API_CALL_CONFIG
+        );
+        $response = $fb->getClient()->sendRequest($request);
+    } catch (Facebook\Exceptions\FacebookResponseException $e) {
         log_error('Graph API', $e->getMessage());
         $response = FALSE;
-    } catch(Facebook\Exceptions\FacebookSDKException $e) {
+    } catch (Facebook\Exceptions\FacebookSDKException $e) {
         log_error('SDK', $e->getMessage());
         $response = FALSE;
     }
 
-    return $response ? $response->getDecodedBody() : FALSE;
+    try {
+        $response = $response->getDecodedBody()['data'];
+    } catch (Error $e) {
+        log_error('Response', 'Unable to parse output data');
+        $response = FALSE;
+    }
+    return $response;
 }
 
 function render_posts($posts) {
-    if ($posts) {
-        echo var_dump($posts);
-    } else {
-        render_login_part();
-    }
+    foreach($posts as $post) {
+        echo '<article class="fb-post">';
+        if (array_key_exists('message', $post)) {
+            echo "<p class=\"text\">${post['message']}</p>";
+        }
+        if (array_key_exists('full_picture', $post)) {
+            echo "<img src=\"${post['full_picture']}\"/>";
+        }
+        echo '<div class="line"></div>';
+        echo '</article>';
+    };
 }
 ?>

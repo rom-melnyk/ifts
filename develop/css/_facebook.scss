@@ -1,0 +1,11 @@
+@import "constants";
+
+
+.fb-post {
+    margin-bottom: 3em;
+
+    .line {
+        margin: .5em 0 0;
+        border-bottom: 1px solid $text-color;
+    }
+}
