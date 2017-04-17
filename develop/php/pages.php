@@ -25,17 +25,13 @@ function get_page_path($name) {
     return $page_path;
 }
 
-function render_page_or_error_message($page_name, $page_path) {
-    if ($page_path) {
-        include $page_path;
+function render_error_message($page_name) {
+    echo '<div class="error">';
+    if (!$page_name) {
+        echo 'Параметр "?name=<...>" не заданий.';
     } else {
-        echo '<div class="error">';
-        if (!$page_name) {
-            echo 'Expected parameter "?name=<...>" but got nothing.';
-        } else {
-            echo "Page \"$page_name\" not found in content folder.";
-        }
-        echo '</div>';
+        echo "Немає файла \"$page_name\" у папці content/.";
     }
+    echo '</div>';
 }
 ?>

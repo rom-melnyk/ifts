@@ -12,7 +12,11 @@
             <?php
             $page_name = get_page_name();
             $page_path = get_page_path($page_name);
-            render_page_or_error_message($page_name, $page_path);
+            if ($page_path) {
+                include $page_path;
+            } else {
+                render_error_message($page_name);
+            }
             ?>
         </section>
 
