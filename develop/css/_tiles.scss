@@ -2,23 +2,26 @@
 
 $tile-height: 7em;
 $tile-padding: .1em;
-$icon-size: $tile-height * .5;
 
 $color-blue: #44f;
 
+$transition-props: .15s linear;
+$text-shadow-props: 0 0 .25em;
+
 .tile {
-    padding: $tile-padding;
+    // padding: $tile-padding;
+    position: relative;
+    height: $tile-height;
 
     .inner-wrapper {
-        position: relative;
+        position: absolute;
         display: block;
-        height: $tile-height - 2 * $tile-padding; // should be set dynamically
+        top: $tile-padding;
+        right: $tile-padding;
+        bottom: $tile-padding;
+        left: $tile-padding;
         background-color: $color-blue;
-        transition: background-color .15s linear;
-
-        &:hover {
-            background-color: darken($color-blue, 10%);
-        }
+        transition: background-color $transition-props;
 
         .icon {
             position: relative;
@@ -26,7 +29,8 @@ $color-blue: #44f;
             left: 50%;
             width: 50%;
             transform: translate(-50%, -50%);
-            // border: 1px dashed #768; // debug
+            text-shadow: $text-shadow-props transparent;
+            transition: transform $transition-props; //, text-shadow $transition-props;
 
             &.fa {
                 font-size: 300%;
@@ -46,6 +50,16 @@ $color-blue: #44f;
             bottom: 4 * $tile-padding;
             font-size: $x-small-text;
             line-height: 1;
+        }
+
+        // -------------- animation --------------
+        &:hover {
+            background-color: darken($color-blue, 5%);
+
+            .icon {
+                transform: translate(-50%, -50%) scale(1.1, 1.1);
+                // text-shadow: $text-shadow-props #000;
+            }
         }
     }
 }
