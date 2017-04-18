@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300&subset=cyrillic");
 @import "constants";
 
 // ------------------ reset ------------------
@@ -17,10 +18,12 @@ body {
   background-color: hsl(240, 20, 20%);
   color: $text-color;
   font-size: 18px;
+  font-weight: 300;
   font-family:'Open Sans', Helvetica, Arial, sans-serif;
 }
 
-p {
+h1, h2, h3, p {
+  font-weight: 300;
   margin-bottom: .75em;
   line-height: 150%;
 }
@@ -52,14 +55,14 @@ a.link {
   margin: 0 auto;
 
   & > header {
-    margin: 2em;
+    margin: $margin;
   }
 
   & > section {
-    margin: 0 2em;
+    margin: 0 $margin;
   }
 
   & > footer {
-    margin: 2em;
+    margin: $margin;
   }
 }

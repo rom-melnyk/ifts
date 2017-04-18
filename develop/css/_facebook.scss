@@ -2,10 +2,10 @@
 
 
 .fb-post {
-    margin-bottom: 3em;
+    margin-bottom: $margin;
 
     .line {
-        margin: .5em 0 0;
+        margin: .75em 0 0;
         border-bottom: 1px solid $text-color;
     }
 }

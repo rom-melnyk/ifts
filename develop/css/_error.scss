@@ -1,6 +1,6 @@
 @import "constants";
 
 .error {
-    @extend .big-text;
+    font-size: $big-text;
     color: $error-color;
 }

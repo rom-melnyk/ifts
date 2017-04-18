@@ -3,9 +3,8 @@ $link-color: #57d;
 $error-color: #d57;
 
 
-.big-text {
-    font-size: 150%;
-}
-.small-text {
-    font-size: 75%;
-}
+$big-text: 150%;
+$small-text: 75%;
+$x-small-text: 60%;
+
+$margin: 4em;

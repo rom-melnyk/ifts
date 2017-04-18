@@ -4,6 +4,8 @@ $tile-height: 7em;
 $tile-padding: .1em;
 $icon-size: $tile-height * .5;
 
+$color-blue: #44f;
+
 .tile {
     padding: $tile-padding;
 
@@ -11,26 +13,38 @@ $icon-size: $tile-height * .5;
         position: relative;
         display: block;
         height: $tile-height - 2 * $tile-padding; // should be set dynamically
-        background-color: #44f;
+        background-color: $color-blue;
+        transition: background-color .15s linear;
+
+        &:hover {
+            background-color: darken($color-blue, 10%);
+        }
 
         .icon {
             position: relative;
             top: 50%;
             left: 50%;
-            width: $icon-size;
-            height: $icon-size;
+            width: 50%;
             transform: translate(-50%, -50%);
-            border: 1px dashed #768;
+            // border: 1px dashed #768; // debug
 
-            background-position: center center;
-            background-repeat: no-repeat;
+            &.fa {
+                font-size: 300%;
+                text-align: center;
+            }
+
+            &.file {
+                height: 50%;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
         }
 
         .title {
-            @extend .small-text;
             position: absolute;
             left: 4 * $tile-padding;
             bottom: 4 * $tile-padding;
+            font-size: $x-small-text;
             line-height: 1;
         }
     }

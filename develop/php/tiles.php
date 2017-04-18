@@ -43,7 +43,7 @@ function get_icon($object) {
     if (array_key_exists('icon-file', $object)) {
         return "<div class=\"icon file\" style=\"background-image: url('${ICONS_BASE}${object['icon-file']}')\"></div>";
     } else if (array_key_exists('icon-class', $object)) {
-        return "<div class=\"icon ${object['icon-class']}\"></div>";
+        return "<i class=\"icon fa ${object['icon-class']}\"></i>";
     } else {
         return '';
     }
@@ -66,7 +66,7 @@ function get_wrapper($object) {
         }
     } else if ($content_file) {
         $href = "/page/$content_file";
-        $link_title = 'Перейти на сторінку';
+        $link_title = 'Відкрити розділ';
     }
 
     return $href

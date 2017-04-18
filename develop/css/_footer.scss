@@ -2,7 +2,7 @@
 
 footer {
     & > * {
-        @extend .small-text;
+        font-size: $small-text;
     }
 }
 
