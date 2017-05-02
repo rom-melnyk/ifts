@@ -1,8 +1,8 @@
-const test = require('./test');
+const { writeBackgoundStyle } = require('./background-texture');
 
 const IFTS = {
     start: () => {
-        console.info(`IFTS ${test}!`);
+        writeBackgoundStyle();
     }
 };
 
