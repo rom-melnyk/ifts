@@ -1,11 +1,29 @@
 @import "constants";
+@import "grid";
 
 
 .fb-post {
     margin-bottom: $margin;
 
-    .line {
-        margin: .75em 0 0;
-        border-bottom: 1px solid $text-color;
+    &:after {
+        @extend .clear-fix;
     }
+
+    .date {
+        font-size: $small-text;
+        margin-bottom: 0;
+    }
+
+    img.wrapped {
+        display: block;
+        float: left;
+        max-width: 50%;
+        margin-top: .5em;
+        margin-right: .5em;
+    }
+
+    // .line {
+    //     margin: .75em 0 0;
+    //     border-bottom: 1px solid $text-color;
+    // }
 }

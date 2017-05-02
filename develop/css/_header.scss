@@ -1,12 +1,12 @@
 @import "constants";
 
 .logo {
-    & > * {
+    div, a img {
         width: 80%;
     }
 
     .slogan {
-        margin-top: 1.5em;
+        margin-top: 1em;
         font-size: $big-text;
         text-align: center;
     }

@@ -1,6 +1,8 @@
 <header class="row">
     <div class="column-3 logo">
-        <img class="logo-big" alt="ІФТехСервіс" src="/gfx/logo.png">
+        <a href="/">
+            <img class="logo-big" alt="ІФТехСервіс" src="/gfx/logo.png">
+        </a>
         <div class="slogan">Ми&nbsp;ремонтуємо побутову&nbsp;техніку</div>
     </div>
     <div class="column-1 contact-us">
