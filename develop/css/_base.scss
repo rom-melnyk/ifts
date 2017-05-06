@@ -54,19 +54,20 @@ a.link {
 // ------------------ top-level layout ------------------
 .main-content {
   min-height: 100%;
+  width: $content-width;
   min-width: 320px;
-  max-width: 1400px;
+  max-width: $content-max-width;
   margin: 0 auto;
 
   & > header {
-    margin: $margin;
+    margin: $content-margin auto;
   }
 
   & > section {
-    margin: 0 $margin;
+    margin: 0 auto;
   }
 
   & > footer {
-    margin: $margin;
+    margin: $content-margin auto;
   }
 }

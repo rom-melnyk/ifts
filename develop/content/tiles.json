@@ -15,19 +15,29 @@
         "title": "Фото",
         "icon-class": "fa-photo",
         "description": "Краще раз побачити",
-        "content-file": "photo"
+        "content-file": "photo",
+        "size": 2
     },
     {
         "title": "Ми у Facebook",
         "icon-class": "fa-facebook-square",
         "description": "Група у Facebook &mdash; тут можна поговорити з нами",
-        "content-file": "facebook"
+        "content-file": "facebook",
+        "size": 4
     },
     {
         "title": "Наш Youtube-канал",
         "icon-class": "fa-youtube-square",
         "description": "Наш Youtube-канал",
-        "link": "https://www.youtube.com/channel/UCt_yF8V7WIHnJ2-pGcI28dg"
+        "link": "https://www.youtube.com/channel/UCt_yF8V7WIHnJ2-pGcI28dg",
+        "size": 2
+    },
+    {
+        "title": "Наші партнери",
+        "icon-class": "fa-thumbs-up",
+        "description": "Наші партнери",
+        "content-file": "partners",
+        "size": 2
     },
     {
         "title": "Ми на List.if.ua",
@@ -52,11 +62,5 @@
         "icon-file": "icon-slando.png",
         "description": "Ми на Slando/OLX",
         "link": "http://olx.ua/list/user/11VK1"
-    },
-    {
-        "title": "Наші партнери",
-        "icon-class": "fa-thumbs-up",
-        "description": "Наші партнери",
-        "content-file": "partners"
     }
 ]

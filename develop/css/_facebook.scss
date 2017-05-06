@@ -3,7 +3,7 @@
 
 
 .fb-post {
-    margin-bottom: $margin;
+    margin-bottom: $content-margin;
 
     &:after {
         @extend .clear-fix;

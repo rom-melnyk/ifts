@@ -7,4 +7,6 @@ $big-text: 150%;
 $small-text: 75%;
 $x-small-text: 60%;
 
-$margin: 4em;
+$content-margin: 5vw;
+$content-width: 100vw - 2 * $content-margin;
+$content-max-width: 1400px;

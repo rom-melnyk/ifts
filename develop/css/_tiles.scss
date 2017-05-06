@@ -5,13 +5,50 @@ $tile-padding: .1em;
 
 $color-blue: #44f;
 
-$transition-props: .15s linear;
+$transition-props: .15s ease-in;
 $text-shadow-props: 0 0 .25em;
 
+$quadrant-size: $content-width / 2;
+$quadrant-max-size: $content-max-width / 2;
+
+.quadrant, .tile {
+    float: left;
+    // overflow: hidden;
+    // border: 1px dashed white;
+}
+
+.quadrant {
+    &:after {
+        @extend .clear-fix;
+    }
+
+    width: $quadrant-size;
+    max-width: $quadrant-max-size;
+    height: $quadrant-size;
+    max-height: $quadrant-max-size;
+}
+
 .tile {
-    // padding: $tile-padding;
     position: relative;
     height: $tile-height;
+
+    &.width-1 {
+        width: $quadrant-size / 2;
+        max-width: $quadrant-max-size / 2;
+    }
+    &.width-2 {
+        width: $quadrant-size;
+        max-width: $quadrant-max-size;
+    }
+
+    &.height-1 {
+        height: $quadrant-size / 2;
+        max-height: $quadrant-max-size / 2;
+    }
+    &.height-2 {
+        height: $quadrant-size;
+        max-height: $quadrant-max-size;
+    }
 
     .inner-wrapper {
         position: absolute;
@@ -60,6 +97,30 @@ $text-shadow-props: 0 0 .25em;
                 transform: translate(-50%, -50%) scale(1.1, 1.1);
                 // text-shadow: $text-shadow-props #000;
             }
+        }
+    }
+}
+
+// ---------------------------- media queries ----------------------------
+@media screen and (max-width: 480px) {
+    .quadrant {
+        width: $quadrant-size * 2;
+        height: $quadrant-size * 2;
+    }
+
+    .tile {
+        &.width-1 {
+            width: $quadrant-size;
+        }
+        &.width-2 {
+            width: $quadrant-size * 2;
+        }
+
+        &.height-1 {
+            height: $quadrant-size;
+        }
+        &.height-2 {
+            height: $quadrant-size * 2;
         }
     }
 }
