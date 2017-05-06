@@ -7,6 +7,7 @@
 
 ## JS things
 node_modules/
+npm-debug.log
 
 ## Desing drawings and other assets
 _design/

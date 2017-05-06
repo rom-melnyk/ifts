@@ -3,10 +3,7 @@
 $tile-height: 7em;
 $tile-padding: .1em;
 
-$color-blue: #44f;
-
-$transition-props: .15s ease-in;
-$text-shadow-props: 0 0 .25em;
+// $text-shadow-props: 0 0 .25em;
 
 $quadrant-size: $content-width / 2;
 $quadrant-max-size: $content-max-width / 2;
@@ -49,6 +46,7 @@ $quadrant-max-size: $content-max-width / 2;
         height: $quadrant-size;
         max-height: $quadrant-max-size;
     }
+    // @see `media-queries.scss` for small screen sizes
 
     .inner-wrapper {
         position: absolute;
@@ -57,8 +55,8 @@ $quadrant-max-size: $content-max-width / 2;
         right: $tile-padding;
         bottom: $tile-padding;
         left: $tile-padding;
-        background-color: $color-blue;
         transition: background-color $transition-props;
+        // @see `skins.scss` for colors
 
         .icon {
             position: relative;
@@ -66,7 +64,7 @@ $quadrant-max-size: $content-max-width / 2;
             left: 50%;
             width: 50%;
             transform: translate(-50%, -50%);
-            text-shadow: $text-shadow-props transparent;
+            // text-shadow: $text-shadow-props transparent;
             transition: transform $transition-props; //, text-shadow $transition-props;
 
             &.fa {
@@ -91,36 +89,11 @@ $quadrant-max-size: $content-max-width / 2;
 
         // -------------- animation --------------
         &:hover {
-            background-color: darken($color-blue, 5%);
-
+            // @see `skins.scss` for colors
             .icon {
                 transform: translate(-50%, -50%) scale(1.1, 1.1);
                 // text-shadow: $text-shadow-props #000;
             }
-        }
-    }
-}
-
-// ---------------------------- media queries ----------------------------
-@media screen and (max-width: 480px) {
-    .quadrant {
-        width: $quadrant-size * 2;
-        height: $quadrant-size * 2;
-    }
-
-    .tile {
-        &.width-1 {
-            width: $quadrant-size;
-        }
-        &.width-2 {
-            width: $quadrant-size * 2;
-        }
-
-        &.height-1 {
-            height: $quadrant-size;
-        }
-        &.height-2 {
-            height: $quadrant-size * 2;
         }
     }
 }

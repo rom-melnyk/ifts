@@ -1,9 +1,10 @@
-const { writeBackgoundStyle } = require('./background-texture');
+const { setSkin } = require('./colors');
 
 const IFTS = {
     start: () => {
-        writeBackgoundStyle();
-    }
+        setSkin();
+    },
+    setSkin
 };
 
 if (window) {

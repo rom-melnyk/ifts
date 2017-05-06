@@ -9,3 +9,13 @@ footer {
 .logo-small {
     max-width: 80%;
 }
+
+.skin {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: .5em;
+    transition: background-color $transition-props;
+
+    // @see `_skin.scss` for colors
+}

@@ -14,6 +14,12 @@
         </div>
     </div>
     <div class="column-1 footer-counters">
+        <?php
+        $colors = [ 'purple', 'blue', 'green', 'olive' ]; // @see `css/_skins.scss`
+        foreach ($colors as $color) {
+            echo '<a class="skin ' . $color . '" href="javascript:IFTS.setSkin(\'' . $color . '\')">&nbsp;</a>';
+        }
+        ?>
         &nbsp;
         <!--<p>[counter-1]</p>
         <p>[counter-2]</p>-->
