@@ -91,7 +91,7 @@ function render_login_part() {
     global $SAVE_TOKEN_URL;
     global $FB_GROUP_PAGE;
 
-    $login_url = $fb_helper->getLoginUrl($SAVE_TOKEN_URL, ['email']);
+    $login_url = $fb_helper->getLoginUrl($SAVE_TOKEN_URL, array('email'));
     echo <<<HTML
 <a class="link" href="$login_url">Залогінься</a>
 в Facebook або перейди на нашу
@@ -156,7 +156,8 @@ function get_posts_from_fb($token) {
     }
 
     try {
-        $response = $response->getDecodedBody()['data'];
+        $response = $response->getDecodedBody();
+        $response = $response['data'];
     } catch (Exception $e) {
         log_error('Response', 'Unable to parse output data');
         $response = FALSE;

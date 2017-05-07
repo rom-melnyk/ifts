@@ -7,7 +7,7 @@ function has_picture($obj) {
 
 function render_fb_background() {
     $posts = get_posts_from_file();
-    $pictures = $posts ? array_filter($posts, 'has_picture') : [];
+    $pictures = $posts ? array_filter($posts, 'has_picture') : array();
     $icon = '<i class="icon fa fa-facebook-square"></i>';
 
     if (count($pictures) >= 3) {
