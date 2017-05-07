@@ -1,0 +1,43 @@
+.tile {
+    .map-tile-background {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url("/gfx/map.png") no-repeat center center;
+        background-size: cover;
+        opacity: .6;
+        transition: transform $transition-props;
+
+        &:hover {
+            transform: scale(1.1, 1.1);
+        }
+    }
+
+    .fb-background {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+
+        &.fb-1 {
+            top: 0;
+            left: 0;
+            background-color: #de6;
+        }
+        &.fb-2 {
+            top: 0;
+            left: 50%;
+            background-color: #6de;
+        }
+        &.fb-3 {
+            top: 50%;
+            left: 0;
+        }
+        &.fb-4 {
+            top: 50%;
+            left: 50%;
+            background-color: #d6e;
+        }
+    }
+}

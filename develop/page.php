@@ -1,4 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/php/pages.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/php/file-exists.php'; ?>
 
 <html>
 <head>
@@ -11,7 +12,7 @@
         <section>
             <?php
             $page_name = get_page_name();
-            $page_path = get_page_path($page_name);
+            $page_path = get_file_name_if_exists($page_name);
             if ($page_path) {
                 include $page_path;
             } else {

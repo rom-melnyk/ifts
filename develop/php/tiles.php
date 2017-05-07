@@ -1,10 +1,14 @@
 <?php
-$PATH = $_SERVER['DOCUMENT_ROOT'] . '/content/tiles.json';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/php/file-exists.php';
+
+$PATH = $_SERVER['DOCUMENT_ROOT'] . '/content/';
+$TILES_FILE = 'tiles.json';
 $ICONS_BASE = 'gfx/icons/';
 
 function read_file() {
     global $PATH;
-    $content = file_get_contents($PATH);
+    global $TILES_FILE;
+    $content = file_get_contents($PATH . $TILES_FILE);
 
     try {
         $content = json_decode($content, true);
@@ -39,6 +43,12 @@ function render_tiles() {
 
         $wrapper = get_wrapper($object);
         echo $wrapper['open'];
+
+        $tile_content_file = get_tile_content_file($object);
+        if ($tile_content_file) {
+            include $tile_content_file;
+        }
+
         echo get_icon($object);
         echo get_title($object);
         echo $wrapper['close'];
@@ -94,7 +104,10 @@ function get_wrapper($object) {
             'open' => '<a href="' . $href . '" class="inner-wrapper" title="' . $link_title . '">',
             'close' => '</a>'
         )
-        : array('open' => '<div class="inner-wrapper">', 'close' => '</div>');
+        : array(
+            'open' => '<div class="inner-wrapper">',
+            'close' => '</div>'
+        );
 }
 
 function get_link($object) {
@@ -106,6 +119,12 @@ function get_link($object) {
 function get_content_file($object) {
     return array_key_exists('content-file', $object)
         ? $object['content-file']
+        : FALSE;
+}
+
+function get_tile_content_file($object) {
+    return array_key_exists('tile-content', $object)
+        ? get_file_name_if_exists($object['tile-content'])
         : FALSE;
 }
 ?>

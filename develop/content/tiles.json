@@ -7,7 +7,8 @@
     },
     {
         "title": "Де і як нас знайти",
-        "icon-class": "fa-map-marker",
+        "tile-content": "map-background",
+        "___icon-class": "fa-map-marker",
         "description": "Де і як нас знайти",
         "content-file": "map"
     },
@@ -20,7 +21,8 @@
     },
     {
         "title": "Ми у Facebook",
-        "icon-class": "fa-facebook-square",
+        "tile-content": "fb-background",
+        "___icon-class": "fa-facebook-square",
         "description": "Група у Facebook &mdash; тут можна поговорити з нами",
         "content-file": "facebook",
         "size": 4

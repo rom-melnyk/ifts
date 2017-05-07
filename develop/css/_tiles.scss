@@ -55,6 +55,7 @@ $quadrant-max-size: $content-max-width / 2;
         right: $tile-padding;
         bottom: $tile-padding;
         left: $tile-padding;
+        overflow: hidden;
         transition: background-color $transition-props;
         // @see `skins.scss` for colors
 
@@ -97,3 +98,4 @@ $quadrant-max-size: $content-max-width / 2;
         }
     }
 }
+// @see `_tiles-extra.scss` fo more styles
