@@ -82,7 +82,8 @@ gulp.task('cleanup', () => {
         `!${DIRS.Deploy}/.gitignore`,
         `!${DIRS.Deploy}/.htaccess`,
         `!${DIRS.Deploy}/php`,
-        `!${DIRS.Deploy}/php/fb-token.txt`
+        `!${DIRS.Deploy}/php/fb-token.txt`,
+        `!${DIRS.Deploy}/php/fb-content.json`
     ]);
 });
 
