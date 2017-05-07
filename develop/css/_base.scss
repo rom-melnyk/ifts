@@ -46,8 +46,9 @@ a, a:hover, a:visited, a:active, a * {
 }
 
 a.link {
-  color: $link-color;
+  // color is set in `_skins.scss`
   text-decoration: underline;
+  transition: color $transition-props;
 }
 
 // ------------------ top-level layout ------------------

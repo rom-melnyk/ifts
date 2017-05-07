@@ -1,4 +1,4 @@
-const { setSkin } = require('./colors');
+const { setSkin } = require('./skins');
 
 const IFTS = {
     start: () => {

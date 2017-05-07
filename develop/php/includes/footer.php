@@ -17,7 +17,7 @@
         <?php
         $colors = [ 'purple', 'blue', 'green', 'olive' ]; // @see `css/_skins.scss`
         foreach ($colors as $color) {
-            echo '<a class="skin ' . $color . '" href="javascript:IFTS.setSkin(\'' . $color . '\')">&nbsp;</a>';
+            echo '<a class="skin ' . $color . '" href="javascript:IFTS.setSkin(\'' . $color . '\')" title="Змінити палітру">&nbsp;</a>';
         }
         ?>
         &nbsp;
