@@ -8,10 +8,11 @@
         background: url("/gfx/map.png") no-repeat center center;
         background-size: cover;
         opacity: .6;
-        transition: transform $transition-props;
+        transition: transform $transition-props, opacity $transition-props;
 
         &:hover {
             transform: scale(1.1, 1.1);
+            opacity: .2;
         }
     }
 
@@ -23,21 +24,33 @@
         background-repeat: no-repeat;
         background-position: center center;
         opacity: .6;
+        transition: transform $transition-props, opacity $transition-props;
+
+        &:hover {
+            opacity: .2;
+
+            &.fb-1 {
+                transform: scale(1.1, 1.1) translate(-5%, -5%);
+            }
+            &.fb-2 {
+                transform: scale(1.1, 1.1) translate(5%, -5%);
+            }
+            &.fb-3 {
+                transform: scale(1.1, 1.1) translate(5%, 5%);
+            }
+        }
 
         &.fb-1 {
             top: 0;
             left: 0;
-            background-color: #de6;
         }
         &.fb-2 {
             top: 0;
             left: 50%;
-            background-color: #6de;
         }
         &.fb-3 {
             top: 50%;
             left: 50%;
-            background-color: #d6e;
         }
         &.fb-4 { // fb logo here
             top: 50%;

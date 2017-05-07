@@ -21,6 +21,12 @@ body {
   font-family:'Open Sans', Helvetica, Arial, sans-serif;
 }
 
+@media screen and (max-width: $screen-s-width) {
+    body {
+        font-size: 14px;
+    }
+}
+
 h1, h2, h3, p {
   font-weight: 300;
   margin-bottom: .75em;

@@ -19,3 +19,11 @@ footer {
 
     // @see `_skin.scss` for colors
 }
+
+
+@media screen and (max-width: $screen-s-width) {
+    .logo-small {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+}

@@ -32,3 +32,13 @@
 .column-4 {
   width: 100%;
 }
+
+
+@media screen and (max-width: $screen-s-width) {
+  .column, .column-1 {
+    width: 50%;
+  }
+  .column-2, .column-3, .column-4 {
+    width: 100%;
+  }
+}

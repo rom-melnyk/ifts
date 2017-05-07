@@ -98,4 +98,31 @@ $quadrant-max-size: $content-max-width / 2;
         }
     }
 }
-// @see `_tiles-extra.scss` fo more styles
+
+
+@media screen and (max-width: $screen-s-width) {
+    .quadrant {
+        width: $quadrant-size * 2;
+        height: $quadrant-size * 2;
+    }
+
+    .tile {
+        &.width-1 {
+            width: $quadrant-size;
+        }
+        &.width-2 {
+            width: $quadrant-size * 2;
+        }
+
+        &.height-1 {
+            height: $quadrant-size;
+        }
+        &.height-2 {
+            height: $quadrant-size * 2;
+        }
+
+        .inner-wrapper .title {
+            font-size: $small-text;
+        }
+    }
+}

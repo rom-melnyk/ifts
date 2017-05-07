@@ -1,14 +1,7 @@
 <?php
-$CONTENT_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/php/fb-content.json';
-
-function log_error($message, $err) {
-    $err = str_replace("\n", '', $err);
-    echo "<script>console.error('Facebook $message error:', '$err');</script>";
-}
-
 
 function get_posts_from_file() {
-    global $CONTENT_FILENAME;
+    $CONTENT_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/php/fb-content.json';
 
     $posts = FALSE;
     if (file_exists($CONTENT_FILENAME)) {
@@ -28,6 +21,5 @@ function save_posts_to_file($posts) {
     $posts = json_encode($posts);
     file_put_contents($CONTENT_FILENAME, $posts);
 }
-
 
 ?>

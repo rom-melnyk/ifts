@@ -17,3 +17,20 @@
         margin-right: .5em;
     }
 }
+
+@media screen and (max-width: $screen-s-width) {
+    .logo {
+        div, a img {
+            width: 100%;
+        }
+
+        .slogan {
+            margin: 1em 0;
+        }
+    }
+
+    .contact-us {
+        margin-bottom: $content-margin;
+        margin-left: 50%;
+    }
+}

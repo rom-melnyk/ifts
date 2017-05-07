@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>ІфТехСервіс 2013-2017</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/gfx/icons/favicon.ico">

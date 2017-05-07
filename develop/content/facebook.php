@@ -80,6 +80,12 @@ function render_fb_part() {
 
 
 // ------------------------ helper functions ------------------------
+function log_error($message, $err) {
+    $err = str_replace("\n", '', $err);
+    echo "<script>console.error('Facebook $message error:', '$err');</script>";
+}
+
+
 function render_login_part() {
     global $fb_helper;
     global $SAVE_TOKEN_URL;
