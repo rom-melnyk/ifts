@@ -10,7 +10,7 @@ function render_error_message($page_name) {
     if (!$page_name) {
         echo 'Параметр "?name=<...>" не заданий.';
     } else {
-        echo "Немає файла \"$page_name\" у папці content/.";
+        echo 'Немає файлу "' . $page_name . '.(html|php)" у папці "content/."';
     }
     echo '</div>';
 }

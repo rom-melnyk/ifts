@@ -1,18 +1,26 @@
 <?php
 session_start();
 
+$FB_GROUP_ID = '453544624728446';
+$FB_GROUP_PAGE = "https://www.facebook.com/groups/$FB_GROUP_ID/";
+
+// Facebook requires PHP v5.4+
+if (version_compare(PHP_VERSION, '5.4.0', '<')) {
+    echo '<!--PHP v' . PHP_VERSION . ' -->';
+    echo "<script>location.href = '$FB_GROUP_PAGE';</script>";
+    exit();
+}
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/facebook-sdk-v5/autoload.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-helpers.php';
+
 
 $THIS_PAGE = 'http://ifts.if.ua/page/facebook';
 $SAVE_TOKEN_URL_PARAM = 'save-token';
 $SAVE_TOKEN_URL = "$THIS_PAGE?$SAVE_TOKEN_URL_PARAM";
 
 $TOKEN_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/php/fb-token.txt';
-
-$FB_GROUP_ID = '453544624728446';
-$FB_GROUP_PAGE = "https://www.facebook.com/groups/$FB_GROUP_ID/";
 
 $FB_API_CALL_CONFIG = array(
     'fields' => 'id,message,full_picture,updated_time',
@@ -28,7 +36,6 @@ render_fb_part();
 
 // ------------------------ main ------------------------
 function render_fb_part() {
-    global $SAVE_TOKEN_URL_PARAM;
     global $TOKEN_FILENAME;
 
     if (isset($_GET[$SAVE_TOKEN_URL_PARAM])) {
