@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/file-exists.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-helpers.php'; // for `fb-backgrounds.php`
 
 $PATH = $_SERVER['DOCUMENT_ROOT'] . '/content/';
 $TILES_FILE = 'tiles.json';

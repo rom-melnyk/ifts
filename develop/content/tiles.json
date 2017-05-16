@@ -23,8 +23,8 @@
         "title": "Ми у Facebook",
         "tile-content": "fb-background",
         "___icon-class": "fa-facebook-square",
-        "description": "Група у Facebook &mdash; тут можна поговорити з нами",
-        "content-file": "facebook-v5",
+        "description": "Група у Facebook: тут можна поговорити з нами",
+        "content-file": "facebook-v3",
         "size": 4
     },
     {
