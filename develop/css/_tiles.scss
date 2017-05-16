@@ -28,6 +28,7 @@ $quadrant-max-size: $content-max-width / 2;
 .tile {
     position: relative;
     height: $tile-height;
+    padding: .1em;
 
     &.width-1 {
         width: $quadrant-size / 2;
@@ -49,12 +50,10 @@ $quadrant-max-size: $content-max-width / 2;
     // @see `media-queries.scss` for small screen sizes
 
     .inner-wrapper {
-        position: absolute;
+        position: relative;
         display: block;
-        top: $tile-padding;
-        right: $tile-padding;
-        bottom: $tile-padding;
-        left: $tile-padding;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
         transition: background-color $transition-props;
         // @see `skins.scss` for colors
