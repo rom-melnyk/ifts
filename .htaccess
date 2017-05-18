@@ -7,3 +7,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^page/([^/?]+) page.php?name=$1&%{QUERY_STRING} [PT,L]
+RewriteRule ^fb-save-posts$ fb-save-posts.php [PT,L]

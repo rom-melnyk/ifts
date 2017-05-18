@@ -5,11 +5,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/facebook-sdk-v3/facebook.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-helpers.php';
 
-
-$THIS_PAGE = 'http://ifts.if.ua/page/facebook-v3';
-$SAVE_TOKEN_URL_PARAM = 'save-token';
-$SAVE_TOKEN_URL = "$THIS_PAGE?$SAVE_TOKEN_URL_PARAM";
-
 $TOKEN_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/php/fb-token.txt';
 
 $fb = new Facebook(array(

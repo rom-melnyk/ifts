@@ -80,7 +80,7 @@ function fetchPosts(token) {
 }
 
 
-function sendToken(token) {
+function sendPosts(posts) {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
@@ -89,16 +89,15 @@ function sendToken(token) {
             }
 
             if (xhr.status === 200) {
-                console.info(xhr);
                 resolve(true);
             } else {
                 reject(xhr);
             }
         };
 
-        xhr.open('POST', '/fb-save-token.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-        xhr.send(`access_token=${token}`);
+        xhr.open('POST', '/fb-save-posts.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        xhr.send(JSON.stringify(posts));
     });
 }
 
