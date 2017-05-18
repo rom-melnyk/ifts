@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-helpers.php';
 

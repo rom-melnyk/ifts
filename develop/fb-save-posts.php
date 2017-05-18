@@ -1,17 +1,16 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-helpers.php';
 
-$TOKEN_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/php/fb-token.txt';
-
-$token = $_POST['access_token'];
+$posts = file_get_contents('php://input');
 $response = array('ok' => null, 'msg' => '');
 
-if ($token) {
-    $result = file_put_contents($TOKEN_FILENAME, $token);
+if ($posts) {
+    $result = save_posts_to_file($posts);
     if ($result) {
         $response['ok'] = true;
     } else {
         $response['ok'] = false;
-        $response['msg'] = 'Unable to save token into file';
+        $response['msg'] = 'Unable to save posts into file';
     }
 
     header('Content-Type: application/json');

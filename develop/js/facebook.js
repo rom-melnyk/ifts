@@ -25,7 +25,7 @@ function run() {
 
         checkLoginStatus()
         .then(fetchPosts)
-        .then(console.info)
+        .then(sendPosts)
         .catch(goToGroupPage);
         // 2) POST to /fb-save-token.php
     };
@@ -95,7 +95,7 @@ function sendPosts(posts) {
             }
         };
 
-        xhr.open('POST', '/fb-save-posts.php', true);
+        xhr.open('POST', '/fb-save-posts', true);
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
         xhr.send(JSON.stringify(posts));
     });

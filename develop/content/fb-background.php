@@ -2,7 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-helpers.php';
 
 function has_picture($obj) {
-    return (boolean) $obj['full_picture'];
+    return array_key_exists('full_picture', $obj);
 }
 
 function render_fb_background() {

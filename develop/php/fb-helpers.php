@@ -29,8 +29,8 @@ function get_posts_from_file() {
 function save_posts_to_file($posts) {
     global $CONTENT_FILENAME;
 
-    $posts = json_encode($posts);
-    file_put_contents($CONTENT_FILENAME, $posts);
+    // $posts = json_encode($posts);
+    return file_put_contents($CONTENT_FILENAME, $posts);
 }
 
 
