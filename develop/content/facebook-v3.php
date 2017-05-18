@@ -27,49 +27,32 @@ function render_fb_part() {
     global $SAVE_TOKEN_URL_PARAM;
     global $TOKEN_FILENAME;
 
-    if (isset($_GET[$SAVE_TOKEN_URL_PARAM])) {
-        $token = $_GET['auth_token'];
-        // TODO design different file for this purpose returning JSON
-        if ($token) {
-            if (file_put_contents($TOKEN_FILENAME, $token)) {
-                render_saved_ok_part();
-            } else {
-                log_error('Token', 'Unable to save token file');
-                render_login_part();
-            }
-        } else {
-            log_error('Auth', 'Token not set');
-            render_login_part();
-        }
+    $token = file_exists($TOKEN_FILENAME) ? file_get_contents($TOKEN_FILENAME) : FALSE;
+    $fb->setAccessToken($token);
+    $user = $fb->getUser();
+    if ($user) {
+        $posts = get_posts_from_file();
 
-    } else {
-        $token = file_exists($TOKEN_FILENAME) ? file_get_contents($TOKEN_FILENAME) : FALSE;
-        $fb->setToken($token);
-        $user = $fb->getUser();
-        if ($user) {
-            $posts = get_posts_from_file();
+        $date_from_file = $posts ? get_first_post_date($posts) : new DateTime('2000-01-01');
+        $date_from_fb = FALSE;
 
-            $date_from_file = $posts ? get_first_post_date($posts) : new DateTime('2000-01-01');
-            $date_from_fb = FALSE;
-
-            if (!$posts || get_time_diff(new DateTime(), $date_from_file) > 0) {
-                $posts = get_posts_from_fb($token);
-                if ($posts) {
-                    $date_from_fb = get_first_post_date($posts);
-                }
-            }
-
+        if (!$posts || get_time_diff(new DateTime(), $date_from_file) > 0) {
+            $posts = get_posts_from_fb($token);
             if ($posts) {
-                render_posts($posts);
-                if ($date_from_fb && get_time_diff($date_from_file, $date_from_fb) > 0) {
-                    save_posts_to_file($posts);
-                }
-            } else {
-                render_login_part();
+                $date_from_fb = get_first_post_date($posts);
+            }
+        }
+
+        if ($posts) {
+            render_posts($posts);
+            if ($date_from_fb && get_time_diff($date_from_file, $date_from_fb) > 0) {
+                save_posts_to_file($posts);
             }
         } else {
             render_login_part();
         }
+    } else {
+        render_login_part();
     }
 }
 
@@ -80,8 +63,9 @@ function render_login_part() {
     global $SAVE_TOKEN_URL;
     global $FB_GROUP_PAGE;
 
-// TODO attach JS code here
     $login_url = $fb->getLoginUrl(array('scope' => 'email', 'redirect_uri' => $SAVE_TOKEN_URL));
+
+    render_fb_javascript();
     echo <<<HTML
 <a class="link" href="$login_url">Залогінься</a>
 в Facebook або перейди на нашу
@@ -150,5 +134,16 @@ function get_posts_from_fb($token) {
         $response = FALSE;
     }
     return $response;
+}
+
+function render_fb_javascript() {
+    global $FB_CONFIG;
+    global $FB_GROUP_ID;
+
+    echo <<<HTML
+<script>
+    Object.assign(IFTS.facebook, { appId: '${FB_CONFIG['app_id']}', groupId: '$FB_GROUP_ID' });
+</script>
+HTML;
 }
 ?>

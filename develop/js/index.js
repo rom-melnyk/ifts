@@ -1,10 +1,13 @@
 const { setSkin } = require('./skins');
+const facebook = require('./facebook');
 
 const IFTS = {
     start: () => {
         setSkin();
+        facebook.run();
     },
-    setSkin
+    setSkin,
+    facebook
 };
 
 if (window) {
