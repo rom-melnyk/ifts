@@ -117,6 +117,12 @@ function get_login_token() {
     if ($token) {
         $oAuth2Client = $fb->getOAuth2Client();
         $token = $oAuth2Client->getLongLivedAccessToken($token);
+
+        try {
+            $token = $token->getValue();
+        } catch (Exception $e) {
+            $token = FALSE;
+        }
     }
 
     return $token;

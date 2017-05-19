@@ -114,7 +114,8 @@ gulp.task('cleanup', () => {
         `!${DIRS.Deploy}`,
         `!${DIRS.Deploy}/.gitignore`,
         `!${DIRS.Deploy}/.htaccess`,
-        `!${DIRS.Deploy}/fb-cache`
+        `!${DIRS.Deploy}/fb-cache`,
+        `!${DIRS.Deploy}/fb-cache/**/*`
     ]);
 });
 
