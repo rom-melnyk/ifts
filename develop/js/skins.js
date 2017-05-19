@@ -1,6 +1,6 @@
 const { getCookie, setCookie } = require('./cookies');
 
-const SKINS = [ 'purple', 'blue', 'green', 'olive' ]; // @see `css/_skins.scss`
+const SKINS = [ 'purple', 'blue', 'green', 'orange' ]; // @see `css/_skins.scss`
 const COOKIE_NAME = 'skin';
 
 function setSkin(skin) {

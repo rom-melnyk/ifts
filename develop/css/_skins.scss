@@ -1,8 +1,11 @@
-$colors: (purple, #616), (blue, #22a), (green, #283), (olive, #662);
+$colors:    (purple,    rgb(141, 1, 148),   27%),
+            (blue,      rgb(38, 113, 238),  51%),
+            (green,     rgb(15, 124, 17),   27%),
+            (orange,    rgb(209, 70, 40),   47%);
 
-@each $name, $color in $colors {
+@each $name, $color, $bg-fade in $colors {
     body.#{$name} {
-        background-color: darken($color, 30%);
+        background-color: darken($color, $bg-fade);
 
         // tile
         .inner-wrapper {
@@ -32,12 +35,13 @@ $colors: (purple, #616), (blue, #22a), (green, #283), (olive, #662);
 }
 
 // ---------------------------- cycade gradient ----------------------------
-$gradients: (.006, 13), (.026, 29), (.034, 37), (.038, 53);
+$gradients: (3, 13), (13, 29), (17, 37), (17, 53);
+$fading-factor: 1.5 / 1000;
 
 @function gradient-string() {
     $result: _;
     @each $alpha, $size in $gradients {
-        $result: $result, linear-gradient(90deg, hsla(0,0%,100%,$alpha) 50%, transparent 50%);
+        $result: $result, linear-gradient(90deg, hsla(0, 0%, 100%, $alpha * $fading-factor) 50%, transparent 50%);
     }
     @return str_slice(#{$result}, 4, 1000);
 }

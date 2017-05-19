@@ -50,13 +50,13 @@
             opacity: .8;
 
             &.fb-1 {
-                transform: scale(1.1, 1.1) translate(-5%, -5%);
+                transform: translate(-5%, -5%) scale(1.1, 1.1);
             }
             &.fb-2 {
-                transform: scale(1.1, 1.1) translate(5%, -5%);
+                transform: translate(5%, -5%) scale(1.1, 1.1);
             }
             &.fb-3 {
-                transform: scale(1.1, 1.1) translate(5%, 5%);
+                transform: translate(5%, 5%) scale(1.1, 1.1);
             }
         }
     }

@@ -12,7 +12,8 @@ function render_fb_background() {
 
     if (count($pictures) >= 3) {
         for ($i = 1; $i <= 3; $i++) {
-            echo '<div class="fb-background fb-' . $i . '" style="background-image: url(\'' . $pictures[$i - 1]['full_picture'] . '\')"></div>';
+            $pic = $pictures[$i - 1]['full_picture'];
+            echo '<div class="fb-background fb-' . $i . '" style="background-image: url(\'' . $pic . '\')"></div>';
         }
 
         echo '<div class="fb-background fb-4">' . $icon . '</div>';
