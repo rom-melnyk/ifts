@@ -15,11 +15,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/facebook-sdk-v5/autoload.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-helpers.php';
 
 
-$THIS_PAGE = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REDIRECT_URL'];
+$THIS_PAGE = 'http://ifts.if.ua/page/facebook';
 $SAVE_TOKEN_URL_PARAM = 'save-token';
 $SAVE_TOKEN_URL = "$THIS_PAGE?$SAVE_TOKEN_URL_PARAM";
-
-$TOKEN_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/php/fb-token.txt';
 
 $fb = new Facebook\Facebook($FB_APP_CREDENTIALS);
 $fb_helper = $fb->getRedirectLoginHelper();
@@ -31,13 +29,13 @@ render_fb_part();
 // ------------------------ main ------------------------
 function render_fb_part() {
     global $SAVE_TOKEN_URL_PARAM;
-    global $TOKEN_FILENAME;
+    global $FB_TOKEN_FILENAME;
 
     if (isset($_GET[$SAVE_TOKEN_URL_PARAM])) {
         $token = get_login_token();
         if (isset($token)) {
             if ($token) {
-                if (file_put_contents($TOKEN_FILENAME, $token)) {
+                if (file_put_contents($FB_TOKEN_FILENAME, $token)) {
                     render_saved_ok_part();
                 } else {
                     log_error('Token', 'Unable to save token file');
@@ -52,7 +50,7 @@ function render_fb_part() {
         }
 
     } else {
-        $token = file_exists($TOKEN_FILENAME) ? file_get_contents($TOKEN_FILENAME) : FALSE;
+        $token = file_exists($FB_TOKEN_FILENAME) ? file_get_contents($FB_TOKEN_FILENAME) : FALSE;
         if ($token) {
             $posts = get_posts_from_file();
 
@@ -106,7 +104,6 @@ function render_saved_ok_part() {
 function get_login_token() {
     global $fb;
     global $fb_helper;
-    global $THIS_PAGE;
 
     $token = FALSE;
     try {

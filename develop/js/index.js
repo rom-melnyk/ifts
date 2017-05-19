@@ -3,7 +3,6 @@ const { setSkin } = require('./skins');
 const IFTS = {
     start: () => {
         setSkin();
-        facebook.run();
     },
     setSkin,
 };

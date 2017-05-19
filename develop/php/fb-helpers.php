@@ -2,7 +2,8 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-config.php';
 
-$CONTENT_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/php/fb-content.json';
+$FB_CONTENT_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/fb-cache/fb-content.json';
+$FB_TOKEN_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/fb-cache/fb-token.txt';
 
 
 function log_error($message, $err) {
@@ -12,11 +13,11 @@ function log_error($message, $err) {
 
 
 function get_posts_from_file() {
-    global $CONTENT_FILENAME;
+    global $FB_CONTENT_FILENAME;
 
     $posts = FALSE;
-    if (file_exists($CONTENT_FILENAME)) {
-        $posts = file_get_contents($CONTENT_FILENAME);
+    if (file_exists($FB_CONTENT_FILENAME)) {
+        $posts = file_get_contents($FB_CONTENT_FILENAME);
         try {
             $posts = json_decode($posts, true);
         } catch (Exception $e) {}
@@ -27,10 +28,10 @@ function get_posts_from_file() {
 
 
 function save_posts_to_file($posts) {
-    global $CONTENT_FILENAME;
+    global $FB_CONTENT_FILENAME;
 
     $posts = json_encode($posts);
-    file_put_contents($CONTENT_FILENAME, $posts);
+    file_put_contents($FB_CONTENT_FILENAME, $posts);
 }
 
 

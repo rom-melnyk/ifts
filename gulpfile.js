@@ -114,9 +114,7 @@ gulp.task('cleanup', () => {
         `!${DIRS.Deploy}`,
         `!${DIRS.Deploy}/.gitignore`,
         `!${DIRS.Deploy}/.htaccess`,
-        `!${DIRS.Deploy}/php`,
-        `!${DIRS.Deploy}/php/fb-token.txt`,
-        `!${DIRS.Deploy}/php/fb-content.json`
+        `!${DIRS.Deploy}/fb-cache`
     ]);
 });
 
@@ -127,6 +125,7 @@ gulp.task('static:copy', () => {
                 // `${__dirname}/.htaccess`, // Why the fuck this does not work?
                 `${DIRS.Develop}/*.php`,
                 `${DIRS.Develop}/php/**/*`,
+                `${DIRS.Develop}/fb-cache/.gitignore`, // otherwise folder is not copied
                 `${DIRS.Develop}/content/**/*`,
                 `${DIRS.Develop}/gfx/**/*`,
             ],
