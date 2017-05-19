@@ -10,7 +10,8 @@ const babel = require('gulp-babel');
 
 const sourcemaps = require('gulp-sourcemaps');
 const gutil = require('gulp-util');
-const uglify = require('gulp-uglify');
+const uglifyJs = require('gulp-uglify');
+const cleanCss = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const del = require('del');
 
@@ -18,6 +19,8 @@ const DIRS = {
     Develop: './develop',
     Deploy: './deploy'
 };
+
+let isProduction = false;
 
 const BABEL_PRESETS = [
     [ 'env', {
@@ -36,10 +39,10 @@ gulp.task('js:cleanup', () => {
 });
 
 gulp.task('js', [ 'js:cleanup' ], () => {
-    browserify({
-        entries: [ `${DIRS.Develop}/js/index.js` ],
-        debug: true
-    })
+    let flow = browserify({
+            entries: [ `${DIRS.Develop}/js/index.js` ],
+            debug: true
+        })
         .transform('babelify', {
             presets: BABEL_PRESETS
         })
@@ -47,12 +50,19 @@ gulp.task('js', [ 'js:cleanup' ], () => {
         .on('error', logJsError)
         .pipe(source(`${DIRS.Develop}/js/index.js`, `${DIRS.Develop}/js/`))
         .pipe(buffer())
-        .pipe(rename(`script.js`))
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        // .pipe(uglify())
-        // .on('error', gutil.log)
-        .pipe(sourcemaps.write(`./`))
-        .pipe(gulp.dest(`${DIRS.Deploy}/`));
+        .pipe(rename(`script.js`));
+
+    if (isProduction) {
+        flow = flow
+            .pipe(uglifyJs())
+            .on('error', gutil.log);
+    } else {
+        flow = flow
+            .pipe(sourcemaps.init({ loadMaps: true }))
+            .pipe(sourcemaps.write(`./`));
+    }
+
+    flow.pipe(gulp.dest(`${DIRS.Deploy}/`));
 });
 
 gulp.task('js:watch', () => {
@@ -66,13 +76,25 @@ gulp.task('css:cleanup', () => {
 });
 
 gulp.task('css', [ 'css:cleanup' ], () => {
-    gulp
+    let flow = gulp
         .src(`${DIRS.Develop}/css/index.scss`, { base: `${DIRS.Develop}/css/` })
-        .pipe(rename(`style.css`))
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(`${DIRS.Deploy}/`));
+        .pipe(rename(`style.css`));
+
+    if (!isProduction) {
+        flow = flow.pipe(sourcemaps.init());
+    }
+
+    flow = flow.pipe(sass().on('error', sass.logError));
+
+    if (!isProduction) {
+        flow = flow.pipe(sourcemaps.write('./'));
+    } else {
+        flow = flow
+            .pipe(cleanCss())
+            .on('error', gutil.log);
+    }
+
+    flow.pipe(gulp.dest(`${DIRS.Deploy}/`));
 });
 
 gulp.task('css:watch', () => {
@@ -81,6 +103,10 @@ gulp.task('css:watch', () => {
 
 
 // -------------------- SERVICE --------------------
+gulp.task('mark-as-prod', () => {
+    isProduction = true;
+});
+
 gulp.task('cleanup', () => {
     del.sync([
         `${DIRS.Deploy}/**`,
@@ -143,3 +169,4 @@ function logJsError(err) {
 
 // -------------------- DEFAULT --------------------
 gulp.task('dev', [ 'cleanup', 'static:copy', 'js', 'css', 'js:watch', 'css:watch', 'static:watch' ]);
+gulp.task('prod', [ 'mark-as-prod', 'cleanup', 'static:copy', 'js', 'css' ]);
