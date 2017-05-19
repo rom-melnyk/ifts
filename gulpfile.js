@@ -31,9 +31,12 @@ const BABEL_PRESETS = [
 
 
 // -------------------- JS --------------------
-gulp.task('js:cleanup', () => del([ `${DIRS.Deploy}/*.js*` ]));
+gulp.task('js:cleanup', () => {
+    del([ `${DIRS.Deploy}/*.js*` ]);
+});
 
-gulp.task('js', [ 'js:cleanup' ], () => browserify({
+gulp.task('js', [ 'js:cleanup' ], () => {
+    browserify({
         entries: [ `${DIRS.Develop}/js/index.js` ],
         debug: true
     })
@@ -41,6 +44,7 @@ gulp.task('js', [ 'js:cleanup' ], () => browserify({
             presets: BABEL_PRESETS
         })
         .bundle()
+        .on('error', logJsError)
         .pipe(source(`${DIRS.Develop}/js/index.js`, `${DIRS.Develop}/js/`))
         .pipe(buffer())
         .pipe(rename(`script.js`))
@@ -48,8 +52,8 @@ gulp.task('js', [ 'js:cleanup' ], () => browserify({
         // .pipe(uglify())
         // .on('error', gutil.log)
         .pipe(sourcemaps.write(`./`))
-        .pipe(gulp.dest(`${DIRS.Deploy}/`))
-);
+        .pipe(gulp.dest(`${DIRS.Deploy}/`));
+});
 
 gulp.task('js:watch', () => {
     gulp.watch([ `${DIRS.Develop}/js/**` ], [ 'js' ]);
@@ -57,16 +61,19 @@ gulp.task('js:watch', () => {
 
 
 // -------------------- CSS --------------------
-gulp.task('css:cleanup', () => del([ `${DIRS.Deploy}/*.css*` ]));
+gulp.task('css:cleanup', () => {
+    del([ `${DIRS.Deploy}/*.css*` ]);
+});
 
-gulp.task('css', [ 'css:cleanup' ], () => gulp
-    .src(`${DIRS.Develop}/css/index.scss`, { base: `${DIRS.Develop}/css/` })
-    .pipe(rename(`style.css`))
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(`${DIRS.Deploy}/`))
-);
+gulp.task('css', [ 'css:cleanup' ], () => {
+    gulp
+        .src(`${DIRS.Develop}/css/index.scss`, { base: `${DIRS.Develop}/css/` })
+        .pipe(rename(`style.css`))
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(`${DIRS.Deploy}/`));
+});
 
 gulp.task('css:watch', () => {
     gulp.watch(`${DIRS.Develop}/css/**`, [ 'css' ]);
@@ -87,27 +94,51 @@ gulp.task('cleanup', () => {
     ]);
 });
 
-gulp.task('static:copy', () => gulp
-    .src([
-        // `${__dirname}/.htaccess`, // Why the fuck this does not work?
-        `${DIRS.Develop}/*.php`,
-        `${DIRS.Develop}/php/**/*`,
-        `${DIRS.Develop}/content/**/*`,
-        `${DIRS.Develop}/gfx/**/*`,
-    ], { base: `${DIRS.Develop}` })
-    .pipe(gulp.dest(`${DIRS.Deploy}`))
-);
+gulp.task('static:copy', () => {
+    gulp
+        .src(
+            [
+                // `${__dirname}/.htaccess`, // Why the fuck this does not work?
+                `${DIRS.Develop}/*.php`,
+                `${DIRS.Develop}/php/**/*`,
+                `${DIRS.Develop}/content/**/*`,
+                `${DIRS.Develop}/gfx/**/*`,
+            ],
+            { base: `${DIRS.Develop}` }
+        ).pipe(gulp.dest(`${DIRS.Deploy}`))
+});
 
 gulp.task('static:watch', () => {
-    gulp.watch([
-            `${DIRS.Develop}/**`,
-            // ignore following
-            `!${DIRS.Develop}/js/**`,
-            `!${DIRS.Develop}/css/**`
-        ],
-        [ 'static:copy' ]
-    );
+    gulp
+        .watch(
+            [
+                `${DIRS.Develop}/**`,
+                // ignore following
+                `!${DIRS.Develop}/js/**`,
+                `!${DIRS.Develop}/css/**`
+            ],
+            [ 'static:copy' ]
+        );
 });
+
+
+// -------------------- helpers --------------------
+function logJsError(err) {
+    if (err.fileName) {
+        // regular error
+        gutil.log(
+            gutil.colors.red(err.name),
+            gutil.colors.yellow(err.fileName),
+            `at ${err.lineNumber}:${(err.columnNumber || err.column)}`,
+            err.description
+        );
+    } else {
+        // browserify error
+        gutil.log(`${err.name}: ${err.message}`);
+    }
+
+    this.emit('end'); // `this` is browserify instance
+}
 
 
 // -------------------- DEFAULT --------------------
