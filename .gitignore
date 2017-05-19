@@ -14,4 +14,4 @@ _design/
 _old-version/
 
 ## Auth
-develop/php/fb-config.php
+develop/php/fb-app-credentials.php

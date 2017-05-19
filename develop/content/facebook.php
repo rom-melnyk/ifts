@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-app-credentials.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-config.php';
 
 // Facebook requires PHP v5.4+
@@ -14,13 +15,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/php/facebook-sdk-v5/autoload.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/php/fb-helpers.php';
 
 
-$THIS_PAGE = 'http://ifts.if.ua/page/facebook';
+$THIS_PAGE = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REDIRECT_URL'];
 $SAVE_TOKEN_URL_PARAM = 'save-token';
 $SAVE_TOKEN_URL = "$THIS_PAGE?$SAVE_TOKEN_URL_PARAM";
 
 $TOKEN_FILENAME = $_SERVER['DOCUMENT_ROOT'] . '/php/fb-token.txt';
 
-$fb = new Facebook\Facebook($FB_CONFIG);
+$fb = new Facebook\Facebook($FB_APP_CREDENTIALS);
 $fb_helper = $fb->getRedirectLoginHelper();
 
 

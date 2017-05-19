@@ -15,10 +15,10 @@ This version is made for basic PHP/Apache-powered server.
 ## FB essentials
 Facebook API v5 requires PHP v5.4+.
 
-Create `develop/php/fb-config.php`:
+Create `develop/php/fb-app-credentials.php`:
 ```
 <?php
-$FB_CONFIG = [
+$FB_APP_CREDENTIALS = [
     'app_id' => '...',
     'app_secret' => '...',
     'default_graph_version' => 'v2.8'
