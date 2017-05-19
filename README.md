@@ -13,6 +13,8 @@ This version is made for basic PHP/Apache-powered server.
 1. Restart the Apache2: `sudo systemctl restart apache2.service`
 
 ## FB essentials
+Facebook API v5 requires PHP v5.4+.
+
 Create `develop/php/fb-config.php`:
 ```
 <?php
@@ -25,10 +27,11 @@ $FB_CONFIG = [
 ```
 
 ## Develop and deploy
-1. `npm dev`: compiles all the client assets, copies them to **`depoy/`** folder.
-1. `npm prod`: behaves similar but generates minified files (prod-friendly).
+1. `npm run dev`: compiles all the client assets, copies them to **`depoy/`** folder.
+1. `npm run prod`: behaves similar but generates minified files (prod-friendly).
 1. Upload the content of **`deploy/`** to the server via FTP.
   - Make sure that folder is writable and `php/` is writable too.
+  - Remove `.gitignore` from the server :)
 1. Make sure there are following modules installed on server:
   - `mbstring` (required for Facebook);
   - `mod_rewrite` (required for `.htaccess`).
