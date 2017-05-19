@@ -32,6 +32,8 @@ $FB_CONFIG = [
 1. Upload the content of **`deploy/`** to the server via FTP.
   - Make sure that folder is writable and `php/` is writable too.
   - Remove `.gitignore` from the server :)
+  - Update `sitemap.xml` and `robots.txt` if needed (both are copied by `prod` task only).
+  - Update Google site verification file.
 1. Make sure there are following modules installed on server:
   - `mbstring` (required for Facebook);
   - `mod_rewrite` (required for `.htaccess`).

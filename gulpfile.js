@@ -134,6 +134,17 @@ gulp.task('static:copy', () => {
         ).pipe(gulp.dest(`${DIRS.Deploy}`))
 });
 
+gulp.task('static:copy-prod', () => {
+    gulp
+        .src(
+            [
+                `${DIRS.Develop}/sitemap.xml`,
+                `${DIRS.Develop}/robots.txt`
+            ],
+            { base: `${DIRS.Develop}` }
+        ).pipe(gulp.dest(`${DIRS.Deploy}`))
+});
+
 gulp.task('static:watch', () => {
     gulp
         .watch(
@@ -169,4 +180,4 @@ function logJsError(err) {
 
 // -------------------- DEFAULT --------------------
 gulp.task('dev', [ 'cleanup', 'static:copy', 'js', 'css', 'js:watch', 'css:watch', 'static:watch' ]);
-gulp.task('prod', [ 'mark-as-prod', 'cleanup', 'static:copy', 'js', 'css' ]);
+gulp.task('prod', [ 'mark-as-prod', 'cleanup', 'static:copy', 'static:copy-prod', 'js', 'css' ]);
