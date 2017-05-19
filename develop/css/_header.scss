@@ -34,3 +34,9 @@
         margin-left: 50%;
     }
 }
+
+@media screen and (min-width: $screen-s-width + 1) and (max-width: $screen-m-width) {
+    .contact-us {
+        font-size: $small-text;
+    }
+}

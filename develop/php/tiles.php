@@ -85,6 +85,10 @@ function get_wrapper($object) {
     $link_title = '';
 
     $link = get_link($object);
+    $tile_class = 'inner-wrapper';
+    if (array_key_exists('tile-class', $object)) {
+        $tile_class .= ' ' . $object['tile-class'];
+    }
     $content_file = get_content_file($object);
 
     if ($link) {
@@ -102,7 +106,7 @@ function get_wrapper($object) {
 
     return $href
         ? array(
-            'open' => '<a href="' . $href . '" class="inner-wrapper" title="' . $link_title . '">',
+            'open' => '<a href="' . $href . '" class="' . $tile_class . '" title="' . $link_title . '">',
             'close' => '</a>'
         )
         : array(

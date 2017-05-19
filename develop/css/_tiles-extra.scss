@@ -7,27 +7,47 @@
         left: 0;
         background: url("/gfx/map.png") no-repeat center center;
         background-size: cover;
-        opacity: .6;
+        opacity: .9;
         transition: transform $transition-props, opacity $transition-props;
 
         &:hover {
             transform: scale(1.1, 1.1);
-            opacity: .2;
+            opacity: .8;
         }
     }
 
-    .fb-background {
-        position: absolute;
-        width: 50%;
-        height: 50%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        opacity: .6;
-        transition: transform $transition-props, opacity $transition-props;
+    .facebook {
+        .fb-background {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            opacity: .9;
+            transition: transform $transition-props, opacity $transition-props;
 
-        &:hover {
-            opacity: .2;
+            &.fb-1 {
+                top: 0;
+                left: 0;
+            }
+            &.fb-2 {
+                top: 0;
+                left: 50%;
+            }
+            &.fb-3 {
+                top: 50%;
+                left: 50%;
+            }
+            &.fb-4 { // fb logo here
+                top: 50%;
+                left: 0;
+                opacity: 1;
+            }
+        }
+
+        &:hover .fb-background {
+            opacity: .8;
 
             &.fb-1 {
                 transform: scale(1.1, 1.1) translate(-5%, -5%);
@@ -38,24 +58,6 @@
             &.fb-3 {
                 transform: scale(1.1, 1.1) translate(5%, 5%);
             }
-        }
-
-        &.fb-1 {
-            top: 0;
-            left: 0;
-        }
-        &.fb-2 {
-            top: 0;
-            left: 50%;
-        }
-        &.fb-3 {
-            top: 50%;
-            left: 50%;
-        }
-        &.fb-4 { // fb logo here
-            top: 50%;
-            left: 0;
-            opacity: 1;
         }
     }
 }
